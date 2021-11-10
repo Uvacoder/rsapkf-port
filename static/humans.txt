@@ -1,15 +1,15 @@
 /* Created by */
-    (keybase.io/rsapkf)
+   keybase.io/rsapkf
 
-/* Tech Stack */
-    Languages: HTML, CSS (SCSS), JavaScript, Markdown, MDX
-    Frameworks: ReactJS, GraphQL, GatsbyJS, NodeJS
-    Tools: Netlify, Neovim, Debian 9, rxvt-unicode, st, Git, GitHub, Firefox Developer Edition, Chromium, VSCodium, npm...
-    Icons: Font Awesome
-    Fonts: Google Fonts, https://github.com/majodev/google-webfonts-helper
-    Loading SVG: https://github.com/SamHerbert/SVG-Loaders
-    APIs: GitHub REST API, Mastodon REST API
+/* Tech stack */
+   Languages: HTML, CSS (SCSS), JavaScript, Markdown, MDX
+   Frameworks: ReactJS, GraphQL, GatsbyJS, NodeJS
+   Tools: Netlify, Neovim, Debian 9, rxvt-unicode, st, Git, GitHub, Firefox Developer Edition, Chromium, VSCodium, npm...
+   Icons: Font Awesome
+   Fonts: Google Fonts, https://github.com/majodev/google-webfonts-helper
+   Loading SVG: https://github.com/SamHerbert/SVG-Loaders
+   APIs: GitHub REST API, Mastodon REST API
 
-/* Inspired By */
-    Dan Abramov (github.com/gearson) - (https://overreacted.io)
-    Wes Bos (github.com/wesbos) - (https://wesbos.com)
+/* Inspired by */
+   Dan Abramov (github.com/gearson) - (https://overreacted.io)
+   Wes Bos (github.com/wesbos) - (https://wesbos.com)

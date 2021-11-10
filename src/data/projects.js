@@ -1,30 +1,28 @@
 export const personalProjects = [
   {
     name: "42",
-    description:
-      "Collection of GitHub repos, blogs and websites to learn cool things.",
+    description: "@rsapkf's linkroll.",
     homepage: "https://links.rsapkf.xyz/",
-    stargazers_count: 1890,
-    forks_count: 125,
+    stargazers_count: 1900,
+    forks_count: 130,
   },
   {
     name: "notes",
-    description:
-      "Personal notes for Vim, tmux, GNU Bash, Zsh, Linux, programming...",
+    description: "@rsapkf's notes.",
     homepage: "https://notes.rsapkf.xyz/",
-    stargazers_count: 5,
+    stargazers_count: 6,
     forks_count: 0,
   },
   {
     name: "www",
-    description: "Source for my personal website. Built using GatsbyJS.",
+    description: "@rsapkf's homepage.",
     homepage: "https://rsapkf.xyz",
-    stargazers_count: 2,
-    forks_count: 0,
+    stargazers_count: 4,
+    forks_count: 1,
   },
   {
     name: "dotfiles",
-    description: "My development environment.",
+    description: "@rsapkf's dotfiles.",
     stargazers_count: 1,
     forks_count: 0,
   },
@@ -36,7 +34,7 @@ export const softwareProjects = [
     description:
       "Comprehensive GNU Readline shortcuts guide for vi + Emacs editing modes.",
     homepage: "https://rsapkf.github.io/gnureadline-reference/",
-    stargazers_count: 3,
+    stargazers_count: 4,
     forks_count: 0,
   },
   {
@@ -49,8 +47,7 @@ export const softwareProjects = [
   },
   {
     name: "tzinfo",
-    description:
-      "Tiny application to check and compare local times of major cities of the world.",
+    description: "Check and compare local times of major cities of the world.",
     homepage: "https://rsapkf.github.io/tzinfo/",
     stargazers_count: 1,
     forks_count: 0,
@@ -66,8 +63,8 @@ export const miscProjects = [
   },
   {
     name: "wallpapers",
-    description: "Personal wallpaper collection.",
-    stargazers_count: 0,
+    description: "@rsapkf's wallpapers.",
+    stargazers_count: 1,
     forks_count: 0,
   },
 ]

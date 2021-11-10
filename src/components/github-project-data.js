@@ -50,7 +50,7 @@ const GitHubProjectData = ({ project }) => {
             {" "}
             {starsCount}
           </a>{" "}
-          • <span className={styles.metric}>Forks</span>:{" "}
+          · <span className={styles.metric}>Forks</span>:{" "}
           <a href={forksURL} className={styles.metricCount}>
             {" "}
             {forksCount}

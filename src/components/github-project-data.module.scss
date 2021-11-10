@@ -4,11 +4,11 @@
 
 .metric,
 .metricCount {
-  padding: 10px 10px;
+  padding: 4px 7px;
   background-color: rgba(52, 73, 94, 0.1);
   border-bottom: unset;
 
   @media (max-width: 450px) {
-    padding: 3px 3px;
+    padding: 2px 3.5px;
   }
 }

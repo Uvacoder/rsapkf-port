@@ -49,7 +49,6 @@ a {
   transition: ease 0.6s;
   padding: 0.7px 2px;
   text-decoration: none;
-  -webkit-text-decoration-skip: objects;
 
   // target links with target attribute
   &[target^="_blank"]:hover::after {
@@ -62,7 +61,7 @@ a {
   }
 
   // target external links
-  // TODO: Find a way to do this using FontAwesome Library without importing fontawesome.css
+  // TODO: Find a way to do this using FontAwesome library without importing fontawesome.css
   &:not([href*="rsapkf.xyz"]):not([href^="/"]):not([href^="#"]):not([href$=".pdf"]):not([href*="mozilla.org"]):not([href*="github.com"]):not([href*="gitlab.com"]):not([href*="mastodon.social"]):not([href*="wikipedia.org"]):not([href*="google.com"]):not([href*="ycombinator.com"]):not([href*="twitter.com"]):not([href*="youtube.com"]):not([href*="stackoverflow.com"]):not([href*="reddit.com"]):not([href*="goodreads.com"]):not([href*="apple.com"]):not([href*="microsoft.com"]):not([href*="amazon.com"]):not([href*="imdb.com"]):not([href*="facebook.com"]):not([href*="instagram.com"])::after {
     content: "\f35d"; // external-link-alt
     font-family: "Font Awesome 5 Free";
@@ -330,7 +329,7 @@ html {
 }
 body {
   height: 100vh;
-  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
   font-size: 0.96rem;
@@ -617,9 +616,6 @@ address {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
-}
-b {
-  font-family: "Open Sans";
 }
 strong {
   font-weight: bold;

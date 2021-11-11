@@ -1,15 +1,15 @@
-$dark-primary:rgba(225, 218, 236, 0.8);
+$dark-primary: rgba(225, 218, 236, 0.8);
 $dark-selection: rgb(7, 247, 7);
-$dark-bg:rgb(1, 0, 14);
+$dark-bg: rgb(1, 0, 14);
 $dark-link: rgb(65, 184, 65);
-$dark-link-bg:rgba(79, 84, 90, 0.1);
+$dark-link-bg: rgba(79, 84, 90, 0.1);
 $dark-link-active-bg: rgba(79, 84, 90, 0.15);
-$light-primary:rgb(0, 0, 0);
+$light-primary: rgb(0, 0, 0);
 $light-selection: rgb(32, 32, 32);
 $light-selection-bg: rgb(240, 204, 240);
-$light-bg:rgb(250, 244, 250);
+$light-bg: rgb(250, 244, 250);
 $light-link: rgb(159, 43, 165);
-$light-link-bg:rgba(186, 198, 209, 0.1);
+$light-link-bg: rgba(186, 198, 209, 0.1);
 $light-link-active-bg: rgba(186, 198, 209, 0.25);
 
 html {
@@ -76,8 +76,8 @@ a {
     ::selection {
       color: $light-selection;
       background-color: $light-selection-bg;
+    }
   }
-   }
 
   // form styles for light mode
   button[type="submit"] {

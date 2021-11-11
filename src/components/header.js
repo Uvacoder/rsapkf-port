@@ -25,13 +25,13 @@ const Header = () => {
               // <img src={sun} alt="Sun" />
               <FontAwesomeIcon
                 icon={["fas", "sun"]}
-                style={{ color: "#e1daeccc", fontSize: "1.1rem" }}
+                style={{ color: "#e1daeccc", fontSize: "0.9rem" }}
               />
             ) : (
               // <img src={moon} alt="Moon" />
               <FontAwesomeIcon
                 icon={["fas", "moon"]}
-                style={{ color: "#403742", fontSize: "1.1rem" }}
+                style={{ color: "#403742", fontSize: "0.9rem" }}
               />
             )}
           </button>

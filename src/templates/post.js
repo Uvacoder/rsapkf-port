@@ -15,8 +15,8 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-        lastUpdated(formatString: "MMMM DD, YYYY")
+        date(formatString: "MMM D, YYYY")
+        lastUpdated(formatString: "MMM D, YYYY")
         tags
       }
       html

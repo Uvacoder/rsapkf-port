@@ -83,7 +83,7 @@ const Posts = props => {
       />
       <br />
       <span style={{ marginTop: "20px" }}>
-        Got suggestions or feedback ? <Link to="/contact">Contact</Link> me!
+        Got suggestions or feedback? <Link to="/contact">Contact</Link> me!
       </span>
     </Layout>
   )

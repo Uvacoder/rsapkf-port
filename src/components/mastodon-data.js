@@ -32,8 +32,6 @@ const MastodonData = ({ tag }) => {
       <p
         style={{
           color: "#d6133d",
-          fontSize: "1rem",
-          fontFamily: "monospace",
         }}
       >
         This is an experimental page.
@@ -46,7 +44,7 @@ const MastodonData = ({ tag }) => {
       </p>
       {isLoading ? (
         <Spinner />
-      ) : // check to see if statuses got returned or error message
+      ) : // Check to see if statuses got returned or error message
       response.constructor === Array ? (
         <ul>
           {response.map(
@@ -82,7 +80,7 @@ const MastodonData = ({ tag }) => {
             {response}. Guru Meditation.
           </p>
           <p>
-            Oops. There seems to be a problem loading resources. If you're still
+            There seems to be a problem loading resources. If you're still
             connected to the internet, one of these things happened:
           </p>
           <ul>

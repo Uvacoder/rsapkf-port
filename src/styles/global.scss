@@ -39,7 +39,7 @@ a {
   padding: 0.7px 2px;
   text-decoration: none;
 
-  // target links with target attribute
+  // Target links with target attribute
   &[target^="_blank"]:hover::after {
     content: "\f360"; // external-link-square-alt
     font-family: "Font Awesome 5 Free";
@@ -49,7 +49,7 @@ a {
     transition: ease 0.2s;
   }
 
-  // target external links
+  // Target external links
   // TODO: Find a way to do this using FontAwesome library without importing fontawesome.css
   &:not([href*="rsapkf.xyz"]):not([href^="/"]):not([href^="#"]):not([href$=".pdf"]):not([href*="mozilla.org"]):not([href*="github.com"]):not([href*="gitlab.com"]):not([href*="mastodon.social"]):not([href*="wikipedia.org"]):not([href*="google.com"]):not([href*="ycombinator.com"]):not([href*="twitter.com"]):not([href*="youtube.com"]):not([href*="stackoverflow.com"]):not([href*="reddit.com"]):not([href*="goodreads.com"]):not([href*="apple.com"]):not([href*="microsoft.com"]):not([href*="amazon.com"]):not([href*="imdb.com"]):not([href*="facebook.com"]):not([href*="instagram.com"])::after {
     content: "\f35d"; // external-link-alt

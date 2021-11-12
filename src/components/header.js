@@ -142,10 +142,10 @@ const Header = () => {
                         </Link>
                       </li>
                       <li>
-                        <Link to="/linklog">Linklog *</Link>
+                        <Link to="/linklog">Linklog*</Link>
                       </li>
                       <li>
-                        <Link to="/microblog">Microblog *</Link>
+                        <Link to="/microblog">Microblog*</Link>
                       </li>
                     </ul>
                   </div>

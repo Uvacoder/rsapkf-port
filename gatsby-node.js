@@ -17,10 +17,11 @@ module.exports.onCreateNode = ({ node, actions }) => {
   }
 }
 
-// Posts
-async function createPostPages({ graphql, actions }, postType) {
+async function createPostAndTagPages({ graphql, actions }, postType) {
   const { createPage } = actions
   const postTemplate = path.resolve(`./src/templates/post.js`)
+  const postListTemplate = path.resolve(`./src/templates/post-list.js`)
+  const tagListTemplate = path.resolve(`./src/templates/tag-list.js`)
   const tagTemplate = path.resolve(`./src/templates/tag.js`)
   const res = await graphql(`
     query {
@@ -51,6 +52,25 @@ async function createPostPages({ graphql, actions }, postType) {
     }
   `)
 
+  // Create post list pages
+  createPage({
+    component: postListTemplate,
+    path: `/${postType}`,
+    context: {
+      postType,
+    },
+  })
+
+  // Create tag list pages
+  createPage({
+    component: tagListTemplate,
+    path: `/${postType}/tags`,
+    context: {
+      postType,
+    },
+  })
+
+  // Create post pages
   const posts = res.data.allMarkdownRemark.edges
   posts.forEach((edge, i) => {
     const prevPost = posts[i + 1]
@@ -68,7 +88,7 @@ async function createPostPages({ graphql, actions }, postType) {
     })
   })
 
-  // Tags
+  // Create tag pages
   const tags = res.data.tagsGroup.group
   tags.forEach(tag => {
     createPage({
@@ -84,8 +104,8 @@ async function createPostPages({ graphql, actions }, postType) {
 
 exports.createPages = async ({ graphql, actions }) => {
   await Promise.all([
-    createPostPages({ graphql, actions }, "blog"),
-    createPostPages({ graphql, actions }, "thoughts"),
-    createPostPages({ graphql, actions }, "hobbies"),
+    createPostAndTagPages({ graphql, actions }, "blog"),
+    createPostAndTagPages({ graphql, actions }, "thoughts"),
+    createPostAndTagPages({ graphql, actions }, "hobbies"),
   ])
 }

@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import PostNav from "../components/post-nav"
 
 import { CopyPermalink } from "../components/copy-permalink"
-import postStyles from "./post.module.scss"
+import styles from "./post.module.scss"
 
 import { capitalizeString } from "../utils/capitalize-string"
 
@@ -51,9 +51,9 @@ const Posts = props => {
         // description={props.data.markdownRemark.excerpt}
         article
       />
-      <h2 className={postStyles.title}>{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
       <small>
-        {date} &bull; {props.data.markdownRemark.timeToRead} min read &bull;{" "}
+        {date} · {props.data.markdownRemark.timeToRead} min read ·{" "}
         {postType === "blog" || postType === "hobbies"
           ? tags.slice(0, 4).map((tag, idx) => (
               <span key={idx}>

@@ -1,11 +1,10 @@
 module.exports = {
   siteMetadata: {
     title: "rsapkf",
-    titleTemplate: "%s :: rsapkf.xyz",
-    // titleTemplate: "%s • rsapkf.xyz",
+    titleTemplate: "%s :: [rsapkf/www]",
     author: "rsapkf",
     description:
-      "Developer, Autodidact, Open Source Advocate & GNU/Linux Aficionado.",
+      "Developer, autodidact, open source advocate & GNU/Linux aficionado.",
     siteUrl: "https://rsapkf.xyz",
     image: "/favicon.png",
     social: {
@@ -72,7 +71,7 @@ module.exports = {
                     }
                   `,
             output: "/blog/rss.xml",
-            title: "rsapkf.xyz/blog Feed",
+            title: "rsapkf.xyz/blog",
           },
           // /thoughts Feed
           {
@@ -116,7 +115,7 @@ module.exports = {
                     }
                   `,
             output: "/thoughts/rss.xml",
-            title: "rsapkf.xyz/thoughts Feed",
+            title: "rsapkf.xyz/thoughts",
           },
           // /hobbies Feed
           {
@@ -195,7 +194,7 @@ module.exports = {
                   }
                 `,
             output: "/writing/rss.xml",
-            title: "rsapkf.xyz Feed",
+            title: "rsapkf.xyz",
           },
         ],
       },

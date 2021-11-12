@@ -2,16 +2,14 @@ import React, { useState, useEffect } from "react"
 import styles from "./github-project-data.module.scss"
 import { fetchData } from "../services/github-api"
 
-import { GITHUB_USERNAME } from "../constants"
-
 const GitHubProjectData = ({ project }) => {
   const [starsCount, setStarsCount] = useState(0)
   const [forksCount, setForksCount] = useState(0)
   const [description, setDescription] = useState("")
   const [projectHomepage, setProjectHomepage] = useState("")
 
-  const starsgazersURL = `https://github.com/${GITHUB_USERNAME}/${project.name}/stargazers`
-  const forksURL = `https://github.com/${GITHUB_USERNAME}/${project.name}/network/members`
+  const starsgazersURL = `${project.repository}/stargazers`
+  const forksURL = `${project.repository}/network/members`
 
   useEffect(() => {
     const fetchGitHubData = async () => {
@@ -19,8 +17,8 @@ const GitHubProjectData = ({ project }) => {
 
       setDescription(res.description)
       setProjectHomepage(res.homepage)
-      setStarsCount(res.stargazers_count)
-      setForksCount(res.forks_count)
+      setStarsCount(res.stargazersCount)
+      setForksCount(res.forksCount)
     }
 
     fetchGitHubData(project)
@@ -28,22 +26,25 @@ const GitHubProjectData = ({ project }) => {
 
   return (
     <>
-      [
-      <a href={`https://github.com/${GITHUB_USERNAME}/${project.name}`}>
-        {`${GITHUB_USERNAME}/${project.name}`}
-      </a>
-      ]:{" "}
+      <a
+        href={`${projectHomepage || project.repository}`}
+      >{`${project.name}`}</a>
+      :{" "}
       {description
         .replace("@rsapkf's ", "")
         .replace(/^\w/, c => c.toUpperCase())}
       <br />
-      {projectHomepage && [
-        <>
-          Homepage: <a href={projectHomepage}>{projectHomepage}</a>
-          <br />
-        </>,
-      ]}
-      {starsCount > 0 && (
+      {!project.isPrivate && (
+        <span>
+          <a href={project.repository}>Source</a>
+        </span>
+      )}
+      {project.builtWith && (
+        <span>
+          [<strong>{project.builtWith}</strong>]
+        </span>
+      )}
+      {!project.isPrivate && starsCount > 0 && (
         <div className={styles.metrics}>
           <span className={styles.metric}>Stars</span>:{" "}
           <a href={starsgazersURL} className={styles.metricCount}>

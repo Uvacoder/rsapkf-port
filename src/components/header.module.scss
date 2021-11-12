@@ -27,6 +27,10 @@ nav {
   margin-top: 1rem;
 }
 
+.nav-container {
+  display: flex;
+}
+
 .nav-list {
   display: flex;
   flex-wrap: wrap;
@@ -158,10 +162,11 @@ nav {
   }
 }
 
-// Theme Toggle
+// Theme toggle
 .dark-switcher {
   all: unset;
+  display: inline-block;
   cursor: pointer;
   margin-left: 1rem;
-  width: 20px;
+  margin-top: 0.5rem;
 }

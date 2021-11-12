@@ -11,8 +11,8 @@ export const fetchData = async project => {
     return {
       description,
       homepage,
-      stargazers_count,
-      forks_count,
+      stargazersCount: stargazers_count,
+      forksCount: forks_count,
     }
   } catch (error) {
     return project

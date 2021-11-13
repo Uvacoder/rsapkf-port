@@ -86,8 +86,10 @@ const PostList = props => {
                 <br />
                 <span className={styles.description}>
                   <small>
-                    {date} · {edge.node.timeToRead} min read ·{" "}
-                    {tags.slice(0, 4).map(tag => `#${tag} `)}
+                    {date} · {edge.node.timeToRead} min read
+                    {postType === "blog" && (
+                      <>· {tags.slice(0, 4).map(tag => `#${tag} `)}</>
+                    )}{" "}
                     <span className={styles.clipboardSpan}>
                       <CopyPermalink link={permalink} />
                     </span>

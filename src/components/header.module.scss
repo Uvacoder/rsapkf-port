@@ -1,34 +1,30 @@
 $header-theme-color: rgb(65, 184, 65);
 
 .header {
-  padding: 1rem 0 3rem;
+  margin: 1rem 0 2rem 0;
+
+  @media (max-width: 640px) {
+    margin-top: 0;
+  }
 }
 
 .title {
   color: $header-theme-color;
-  font-size: 2.5rem;
-  font-weight: 500;
-  text-decoration: none;
-  font-family: "Yeon Sung";
-  border-bottom: unset;
-  background-color: transparent !important;
+  font-size: 2rem;
 
   &:hover {
-    background-color: transparent !important;
     color: rgb(90, 84, 84);
   }
 
-  @media (max-width: 400px) {
-    font-size: 2rem;
+  @media (max-width: 640px) {
+    font-size: 1.7rem;
   }
 }
 
-nav {
-  margin-top: 1rem;
-}
-
 .nav-container {
+  margin-top: 1rem;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .nav-list {
@@ -36,9 +32,8 @@ nav {
   flex-wrap: wrap;
   list-style-type: none;
   margin: 0;
-  justify-content: flex-start;
   gap: 10px;
-  transition: all 0.6s;
+  transition: all 0.6s ease;
 
   a {
     color: unset;
@@ -51,14 +46,13 @@ nav {
   transition: all 0.6s ease;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1rem;
   position: relative;
   font-weight: 400;
   background-color: transparent !important;
 
-  // animated underline on hover
+  // Animated underline on hover
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
     height: 1px;
@@ -66,7 +60,7 @@ nav {
     background-color: rgba(81, 79, 84, 0.8);
     opacity: 0;
     transform: scaleX(0);
-    transition: transform 0.3s ease-in-out 0s;
+    transition: transform 0.3s ease-in-out;
   }
 
   &:hover::before {
@@ -78,7 +72,7 @@ nav {
 
 .active-nav-item {
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
     background-color: rgba(81, 79, 84, 0.8);
@@ -95,8 +89,8 @@ nav {
   cursor: pointer;
 
   &::after {
-    content: "\f107"; // angle-down
-    font-family: "Font Awesome 5 Free";
+    content: '\f107'; // angle-down
+    font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 0.8rem;
     display: inline-block;
@@ -105,7 +99,7 @@ nav {
     top: 0;
     left: 5px;
     margin-right: 5px;
-    transition: transform 0.6s ease;
+    transition: all 0.6s ease;
   }
 
   &:hover::after {
@@ -141,8 +135,8 @@ nav {
   border: 1px solid rgb(150, 145, 145);
   border-radius: 3px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
-  font-size: 1rem;
-  min-width: 180px;
+  white-space: nowrap;
+  margin-left: -35px;
 
   ul {
     list-style: none;
@@ -168,5 +162,5 @@ nav {
   display: inline-block;
   cursor: pointer;
   margin-left: 1rem;
-  margin-top: 0.5rem;
+  margin-top: -12px;
 }

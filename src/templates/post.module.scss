@@ -1,5 +1,13 @@
 .title {
   @media (max-width: 800px) {
-    line-height: 2rem;
+    line-height: 2.5rem;
   }
+}
+
+.article-footer {
+  border: 1px solid rgb(95, 92, 92);
+  border-radius: 5px;
+  padding: 1rem 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  line-height: 1.9rem;
 }

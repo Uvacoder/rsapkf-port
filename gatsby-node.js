@@ -1,31 +1,31 @@
-const path = require("path")
-const _ = require("lodash")
+const path = require('path')
+const _ = require('lodash')
 
-module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
+module.exports.onCreateNode = ({node, actions}) => {
+  const {createNodeField} = actions
 
-  if (node.internal.type === "MarkdownRemark") {
+  if (node.internal.type === 'Mdx') {
     const slug = node.frontmatter.slug
       ? `${node.frontmatter.slug}`
-      : path.basename(node.fileAbsolutePath, ".md")
+      : path.basename(node.fileAbsolutePath, '.mdx')
 
     createNodeField({
       node,
-      name: "slug",
+      name: 'slug',
       value: slug,
     })
   }
 }
 
-async function createPostAndTagPages({ graphql, actions }, postType) {
-  const { createPage } = actions
+async function createPostAndTagPages({graphql, actions}, postType) {
+  const {createPage} = actions
   const postTemplate = path.resolve(`./src/templates/post.js`)
   const postListTemplate = path.resolve(`./src/templates/post-list.js`)
   const tagListTemplate = path.resolve(`./src/templates/tag-list.js`)
   const tagTemplate = path.resolve(`./src/templates/tag.js`)
   const res = await graphql(`
     query {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: DESC, fields: [frontmatter___date] }
         filter: { frontmatter: { type: { eq: "${postType}" } } }
       ) {
@@ -41,7 +41,7 @@ async function createPostAndTagPages({ graphql, actions }, postType) {
           }
         }
       }
-      tagsGroup: allMarkdownRemark(
+      tagsGroup: allMdx(
         limit: 2000
         filter: { frontmatter: { type: { eq: "${postType}" } } }
       ) {
@@ -71,7 +71,7 @@ async function createPostAndTagPages({ graphql, actions }, postType) {
   })
 
   // Create post pages
-  const posts = res.data.allMarkdownRemark.edges
+  const posts = res.data.allMdx.edges
   posts.forEach((edge, i) => {
     const prevPost = posts[i + 1]
     const nextPost = posts[i - 1]
@@ -92,7 +92,7 @@ async function createPostAndTagPages({ graphql, actions }, postType) {
   const tags = res.data.tagsGroup.group
   tags.forEach(tag => {
     createPage({
-      path: `/${postType}/` + "tags/" + _.kebabCase(tag.fieldValue),
+      path: `/${postType}/` + 'tags/' + _.kebabCase(tag.fieldValue),
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
@@ -102,10 +102,10 @@ async function createPostAndTagPages({ graphql, actions }, postType) {
   })
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({graphql, actions}) => {
   await Promise.all([
-    createPostAndTagPages({ graphql, actions }, "blog"),
-    createPostAndTagPages({ graphql, actions }, "thoughts"),
-    createPostAndTagPages({ graphql, actions }, "hobbies"),
+    createPostAndTagPages({graphql, actions}, 'blog'),
+    createPostAndTagPages({graphql, actions}, 'thoughts'),
+    createPostAndTagPages({graphql, actions}, 'hobbies'),
   ])
 }

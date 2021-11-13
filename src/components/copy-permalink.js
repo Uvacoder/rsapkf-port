@@ -1,20 +1,18 @@
-import React, { useState } from "react"
+import React, {useState} from 'react'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-import { copyToClipboard } from "../utils/copy-to-clipboard"
-import styles from "./copy-permalink.module.scss"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {copyToClipboard} from '../utils/copy-to-clipboard'
+import styles from './copy-permalink.module.scss'
 
-export const CopyPermalink = ({ link }) => {
-  const [permalinkButtonText, setPermalinkButtonText] = useState(
-    "Copy permalink"
-  )
+export const CopyPermalink = ({link}) => {
+  const [permalinkButtonText, setPermalinkButtonText] = useState('Permalink')
   return (
     <button
       className={styles.clipboardSpan}
       onClick={() => {
         copyToClipboard(link)
-        setPermalinkButtonText("Copied")
-        setTimeout(() => setPermalinkButtonText("Copy permalink"), 1500)
+        setPermalinkButtonText('Copied')
+        setTimeout(() => setPermalinkButtonText('Permalink'), 1500)
       }}
     >
       {permalinkButtonText}
@@ -22,19 +20,19 @@ export const CopyPermalink = ({ link }) => {
   )
 }
 
-export const CopyPermalinkIcon = ({ link }) => {
+export const CopyPermalinkIcon = ({link}) => {
   const [permalinkButtonIcon, setPermalinkButtonIcon] = useState([
-    "far",
-    "copy",
+    'far',
+    'copy',
   ])
   return (
     <button
       className={styles.clipboardIcon}
-      title={"Copy permalink to clipboard"}
+      title={'Copy permalink to clipboard'}
       onClick={() => {
         copyToClipboard(link)
-        setPermalinkButtonIcon(["fas", "check"])
-        setTimeout(() => setPermalinkButtonIcon(["far", "copy"]), 1500)
+        setPermalinkButtonIcon(['fas', 'check'])
+        setTimeout(() => setPermalinkButtonIcon(['far', 'copy']), 1500)
       }}
     >
       <FontAwesomeIcon icon={permalinkButtonIcon} />

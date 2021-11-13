@@ -1,19 +1,15 @@
 .clipboard-span {
-    all:unset;
-    cursor: pointer;
-    border: 1px solid rgba(128, 128, 128, 0.4) ;
-    border-radius: 1px;
-    line-height: 1rem;
-    padding: 0 4px;
-    font-size: 0.6rem;
+  all: unset;
+  cursor: pointer;
+  font-size: 0.85rem;
 }
 
 .clipboard-icon {
-    cursor: pointer !important;
-    all: unset;
-    border: 1px solid rgba(128, 128, 128, 0.4);
-    border-radius: 5px;
-    width: 30px;
-    color: rgb(97, 94, 94);
-    text-align: center;
+  cursor: pointer !important;
+  all: unset;
+  border: 1px solid rgba(128, 128, 128, 0.4);
+  border-radius: 5px;
+  width: 30px;
+  color: rgb(97, 94, 94);
+  text-align: center;
 }

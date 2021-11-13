@@ -1,18 +1,59 @@
 module.exports = {
   siteMetadata: {
-    title: "rsapkf",
-    titleTemplate: "%s :: [rsapkf/www]",
-    author: "rsapkf",
+    title: 'rsapkf',
+    titleTemplate: '%s :: [rsapkf/www]',
+    author: 'rsapkf',
     description:
-      "Developer, autodidact, open source advocate & GNU/Linux aficionado.",
-    siteUrl: "https://rsapkf.xyz",
-    image: "/favicon.png",
+      'Developer, autodidact, open source advocate & GNU/Linux aficionado.',
+    siteUrl: 'https://rsapkf.xyz',
+    image: '/favicon.png',
     social: {
-      twitter: "@rsapkf",
+      twitter: '@rsapkf',
     },
   },
-  pathPrefix: "/",
+  pathPrefix: '/',
   plugins: [
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'src',
+        path: `${__dirname}/src/`,
+      },
+    },
+    'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        defaultLayouts: {
+          default: require.resolve(`./src/components/layout.js`),
+        },
+        gatsbyRemarkPlugins: [
+          'gatsby-remark-relative-images',
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 750,
+              linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              inlineCodeMarker: '÷',
+              noInlineHighlight: false,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-150101522-1',
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
@@ -29,28 +70,28 @@ module.exports = {
                 }
               `,
         feeds: [
-          // /blog Feed
+          // /blog
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({query: {site, allMdx}}) => {
+              return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url:
                     site.siteMetadata.siteUrl +
-                    "/blog/" +
+                    '/blog/' +
                     edge.node.fields.slug,
                   guid:
                     site.siteMetadata.siteUrl +
-                    "/blog/" +
+                    '/blog/' +
                     edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{'content:encoded': edge.node.html}],
                 })
               })
             },
             query: `
                     {
-                      allMarkdownRemark(
+                      allMdx(
                         sort: { order: DESC, fields: [frontmatter___date] },
                         filter: {
                           frontmatter: { type: { eq: "blog" } }
@@ -70,31 +111,31 @@ module.exports = {
                       }
                     }
                   `,
-            output: "/blog/rss.xml",
-            title: "rsapkf.xyz/blog",
+            output: '/blog/rss.xml',
+            title: 'rsapkf.xyz/blog',
           },
-          // /thoughts Feed
+          // /thoughts
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({query: {site, allMdx}}) => {
+              return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url:
                     site.siteMetadata.siteUrl +
-                    "/thoughts/" +
+                    '/thoughts/' +
                     edge.node.fields.slug,
                   guid:
                     site.siteMetadata.siteUrl +
-                    "/thoughts/" +
+                    '/thoughts/' +
                     edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{'content:encoded': edge.node.html}],
                 })
               })
             },
             query: `
                     {
-                      allMarkdownRemark(
+                      allMdx(
                         sort: { order: DESC, fields: [frontmatter___date] },
                         filter: {
                           frontmatter: { type: { eq: "thoughts" } }
@@ -114,31 +155,31 @@ module.exports = {
                       }
                     }
                   `,
-            output: "/thoughts/rss.xml",
-            title: "rsapkf.xyz/thoughts",
+            output: '/thoughts/rss.xml',
+            title: 'rsapkf.xyz/thoughts',
           },
-          // /hobbies Feed
+          // /hobbies
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({query: {site, allMdx}}) => {
+              return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url:
                     site.siteMetadata.siteUrl +
-                    "/hobbies/" +
+                    '/hobbies/' +
                     edge.node.fields.slug,
                   guid:
                     site.siteMetadata.siteUrl +
-                    "/hobbies/" +
+                    '/hobbies/' +
                     edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  custom_elements: [{'content:encoded': edge.node.html}],
                 })
               })
             },
             query: `
                   {
-                    allMarkdownRemark(
+                    allMdx(
                       sort: { order: DESC, fields: [frontmatter___date] },
                       filter: {
                         frontmatter: { type: { eq: "hobbies" } }
@@ -158,25 +199,25 @@ module.exports = {
                     }
                   }
                 `,
-            output: "/hobbies/rss.xml",
-            title: "rsapkf.xyz/hobbies Feed",
+            output: '/hobbies/rss.xml',
+            title: 'rsapkf.xyz/hobbies Feed',
           },
           // All
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({query: {site, allMdx}}) => {
+              return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + "/" + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + "/" + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
+                  url: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
+                  custom_elements: [{'content:encoded': edge.node.html}],
                 })
               })
             },
             query: `
                   {
-                    allMarkdownRemark(
+                    allMdx(
                       sort: { order: DESC, fields: [frontmatter___date] }
                     ) {
                       edges {
@@ -193,56 +234,10 @@ module.exports = {
                     }
                   }
                 `,
-            output: "/writing/rss.xml",
-            title: "rsapkf.xyz",
+            output: '/writing/rss.xml',
+            title: 'rsapkf.xyz',
           },
         ],
-      },
-    },
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sass",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "src",
-        path: `${__dirname}/src/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-mdx`,
-      options: {
-        defaultLayouts: {
-          default: require.resolve(`./src/components/layout.js`),
-        },
-      },
-    },
-    "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        excerpt_separator: `<!-- truncate -->`,
-        plugins: [
-          "gatsby-remark-relative-images",
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 750,
-              linkImagesToOriginal: false,
-            },
-          },
-          {
-            resolve: "gatsby-remark-prismjs",
-            options: {
-              inlineCodeMarker: "÷",
-            },
-          },
-        ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-150101522-1",
       },
     },
   ],

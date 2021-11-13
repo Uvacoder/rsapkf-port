@@ -1,19 +1,19 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import {Link, graphql} from 'gatsby'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-import { CopyPermalink, CopyPermalinkIcon } from "../components/copy-permalink"
-import styles from "./post-list.module.scss"
+import {CopyPermalinkIcon} from '../components/copy-permalink'
+import styles from './post-list.module.scss'
 
-import { capitalizeString } from "../utils/capitalize-string"
+import {capitalizeString} from '../utils/capitalize-string'
 
 export const query = graphql`
   query($postType: String!) {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { type: { eq: $postType } } }
+    allMdx(
+      sort: {order: DESC, fields: [frontmatter___date]}
+      filter: {frontmatter: {type: {eq: $postType}}}
     ) {
       edges {
         node {
@@ -21,7 +21,6 @@ export const query = graphql`
             title
             date(formatString: "MMM D, YYYY")
             spoiler
-            tags
             type
           }
           timeToRead
@@ -45,54 +44,48 @@ const PostList = props => {
   return (
     <Layout>
       <SEO title={capitalizeString(postType)} />
-      <h3>{capitalizeString(postType)}</h3>
-      <span style={{ marginBottom: "0.5rem" }}>
-        <Link to={`/${postType}/tags`}>Tags</Link> ·{" "}
-        <Link to={`/${postType}/rss.xml`}>RSS</Link> ·{" "}
+      <h2>{capitalizeString(postType)}</h2>
+      <span style={{marginBottom: '0.5rem'}}>
+        <Link to={`/${postType}/tags`}>Tags</Link> ·{' '}
+        <Link to={`/${postType}/rss.xml`}>RSS</Link> ·{' '}
         <Link to="/discussions">Discussions</Link>
       </span>
-      <span style={{ marginBottom: "1.1rem" }}>
-        {postType === "blog" ? (
+      <span style={{marginBottom: '1.1rem'}}>
+        {postType === 'blog' ? (
           <>
-            Filter: <Link to="/blog/tags/programming">Programming</Link> ·{" "}
-            <Link to="/blog/tags/linux">Linux</Link> ·{" "}
+            Filter: <Link to="/blog/tags/programming">Programming</Link> ·{' '}
+            <Link to="/blog/tags/linux">Linux</Link> ·{' '}
             <Link to="/blog/tags/privacy">Privacy</Link>
           </>
-        ) : postType === "thoughts" ? (
+        ) : postType === 'thoughts' ? (
           <>
-            Filter: <Link to="/thoughts/tags/essay">Essays</Link> ·{" "}
-            <Link to="/thoughts/tags/book">Books</Link> ·{" "}
-            <Link to="/thoughts/tags/movie">Movies</Link> ·{" "}
+            Filter: <Link to="/thoughts/tags/essay">Essays</Link> ·{' '}
+            <Link to="/thoughts/tags/book">Books</Link> ·{' '}
+            <Link to="/thoughts/tags/movie">Movies</Link> ·{' '}
             <Link to="/thoughts/tags/tv-show">TV shows</Link>
           </>
         ) : (
           <>
-            Filter: <Link to="/hobbies/tags/cubing">Cubing</Link> ·{" "}
+            Filter: <Link to="/hobbies/tags/cubing">Cubing</Link> ·{' '}
             <Link to="/hobbies/tags/chess">Chess</Link>
           </>
         )}
       </span>
       <div className={styles.container}>
         <ol className={styles.articles}>
-          {props.data.allMarkdownRemark.edges.map((edge, idx) => {
-            const { title, date, spoiler, tags } = edge.node.frontmatter
+          {props.data.allMdx.edges.map((edge, idx) => {
+            const {title, date, spoiler} = edge.node.frontmatter
             const permalink = `${props.data.site.siteMetadata.siteUrl}/blog/${edge.node.fields.slug}`
 
             return (
               <li className={styles.article} key={idx}>
                 <Link to={`/${postType}/${edge.node.fields.slug}`}>
-                  <span>{title}</span>
+                  <span style={{width: '50%'}}>{title}</span>
                 </Link>
                 <br />
                 <span className={styles.description}>
                   <small>
                     {date} · {edge.node.timeToRead} min read
-                    {postType === "blog" && (
-                      <>· {tags.slice(0, 4).map(tag => `#${tag} `)}</>
-                    )}{" "}
-                    <span className={styles.clipboardSpan}>
-                      <CopyPermalink link={permalink} />
-                    </span>
                     <br />
                     {spoiler}
                   </small>

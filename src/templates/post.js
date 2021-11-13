@@ -1,26 +1,26 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import {Link, graphql} from 'gatsby'
+import {MDXRenderer} from 'gatsby-plugin-mdx'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PostNav from "../components/post-nav"
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import PostNav from '../components/post-nav'
 
-import { CopyPermalink } from "../components/copy-permalink"
-import styles from "./post.module.scss"
+import {CopyPermalink} from '../components/copy-permalink'
+import styles from './post.module.scss'
 
-import { capitalizeString } from "../utils/capitalize-string"
+import {capitalizeString} from '../utils/capitalize-string'
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: {slug: {eq: $slug}}) {
       frontmatter {
         title
         date(formatString: "MMM D, YYYY")
         lastUpdated(formatString: "MMM D, YYYY")
         tags
       }
-      html
-      # excerpt(truncate: true)
+      body
       timeToRead
       fields {
         slug
@@ -36,65 +36,49 @@ export const query = graphql`
 
 const Posts = props => {
   const postType = props.pageContext.postType
-  const slug = props.data.markdownRemark.fields.slug
-  const {
-    title,
-    date,
-    lastUpdated,
-    tags,
-  } = props.data.markdownRemark.frontmatter
+  const slug = props.data.mdx.fields.slug
+  const {title, date, lastUpdated, tags} = props.data.mdx.frontmatter
   const permalink = `${props.data.site.siteMetadata.siteUrl}/${postType}/${slug}`
-  const editUrl = `https://github.com/rsapkf/www/blob/main/src/writing/${postType}/${slug}/index.md`
+  const editUrl = `https://github.com/rsapkf/www/blob/main/src/writing/${postType}/${slug}/index.mdx`
 
   return (
     <Layout>
       <SEO
         title={`${title} :: ${capitalizeString(postType)}`}
-        // description={props.data.markdownRemark.excerpt}
+        // description={props.data.mdx.excerpt}
         article
       />
       <h2 className={styles.title}>{title}</h2>
-      <small>
-        {date} · {props.data.markdownRemark.timeToRead} min read
-        {postType === "blog" || postType === "hobbies" ? (
-          <>
-            {" "}
-            ·{" "}
-            {tags.slice(0, 4).map((tag, idx) => (
-              <span key={idx}>
-                <Link
-                  to={`/${postType}/tags/${tag}`}
-                  style={{ borderBottom: "unset" }}
-                >
-                  #{tag}
-                </Link>{" "}
-              </span>
-            ))}
-          </>
-        ) : (
-          ""
-        )}{" "}
-        · Last updated: {lastUpdated} · <CopyPermalink link={permalink} />
+      <small style={{marginTop: '-20px'}}>
+        {date} · {props.data.mdx.timeToRead} min read · Last updated:{' '}
+        {lastUpdated}
         <hr />
       </small>
-      <div
-        dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
-      ></div>
-      <small style={{ marginTop: "20px" }}>
+      <MDXRenderer>{props.data.mdx.body}</MDXRenderer>
+      <div className={styles.articleFooter}>
+        <div>
+          Posted in <Link to={`/${postType}`}>/{postType}</Link> on {date}.
+        </div>
+        <div>Last updated: {lastUpdated}</div>
+        <div>
+          Categories:{' '}
+          {tags.slice(0, 4).map((tag, idx) => (
+            <span key={idx}>
+              <Link to={`/${postType}/tags/${tag}`}>#{tag}</Link>{' '}
+            </span>
+          ))}
+        </div>
         <a href={editUrl} target="_blank" rel="noreferrer noopener">
-          Edit this page
-        </a>
-      </small>
-      <hr />
-      <PostNav
-        prev={props.pageContext.prevPost}
-        next={props.pageContext.nextPost}
-        postType={`${postType}`}
-      />
-      <br />
-      <span style={{ marginTop: "20px" }}>
-        Got suggestions or feedback? <Link to="/contact">Contact</Link> me!
-      </span>
+          Edit
+        </a>{' '}
+        · <Link to="/contact">Feedback</Link> ·{' '}
+        <CopyPermalink link={permalink} />
+        <PostNav
+          prev={props.pageContext.prevPost}
+          next={props.pageContext.nextPost}
+          postType={`${postType}`}
+        />
+      </div>
     </Layout>
   )
 }

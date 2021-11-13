@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react"
-import styles from "./github-project-data.module.scss"
-import { fetchData } from "../services/github-api"
+import React, {useState, useEffect} from 'react'
+import styles from './github-project-data.module.scss'
+import {fetchData} from '../services/github-api'
 
-const GitHubProjectData = ({ project }) => {
+const GitHubProjectData = ({project}) => {
   const [starsCount, setStarsCount] = useState(0)
   const [forksCount, setForksCount] = useState(0)
-  const [description, setDescription] = useState("")
-  const [projectHomepage, setProjectHomepage] = useState("")
+  const [description, setDescription] = useState('')
+  const [projectHomepage, setProjectHomepage] = useState('')
 
-  const starsgazersURL = `${project.repository}/stargazers`
-  const forksURL = `${project.repository}/network/members`
+  const starsgazersUrl = `${project.repository}/stargazers`
+  const forksUrl = `${project.repository}/network/members`
 
   useEffect(() => {
     const fetchGitHubData = async () => {
@@ -29,12 +29,12 @@ const GitHubProjectData = ({ project }) => {
       <a
         href={`${projectHomepage || project.repository}`}
       >{`${project.name}`}</a>
-      :{" "}
+      :{' '}
       {description
-        .replace("@rsapkf's ", "")
+        .replace("@rsapkf's ", '')
         .replace(/^\w/, c => c.toUpperCase())}
       <br />
-      {!project.isPrivate && (
+      {!project.isPrivate && project.homepage && (
         <span>
           <a href={project.repository}>Source</a>
         </span>
@@ -46,14 +46,14 @@ const GitHubProjectData = ({ project }) => {
       )}
       {!project.isPrivate && starsCount > 0 && (
         <div className={styles.metrics}>
-          <span className={styles.metric}>Stars</span>:{" "}
-          <a href={starsgazersURL} className={styles.metricCount}>
-            {" "}
+          <span className={styles.metric}>Stars</span>:{' '}
+          <a href={starsgazersUrl} className={styles.metricCount}>
+            {' '}
             {starsCount}
-          </a>{" "}
-          · <span className={styles.metric}>Forks</span>:{" "}
-          <a href={forksURL} className={styles.metricCount}>
-            {" "}
+          </a>{' '}
+          · <span className={styles.metric}>Forks</span>:{' '}
+          <a href={forksUrl} className={styles.metricCount}>
+            {' '}
             {forksCount}
           </a>
         </div>

@@ -1,5 +1,5 @@
-import { library } from "@fortawesome/fontawesome-svg-core"
-import { faLinux } from "@fortawesome/free-brands-svg-icons"
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {faLinux} from '@fortawesome/free-brands-svg-icons'
 import {
   faCodeBranch,
   faPuzzlePiece,
@@ -10,8 +10,8 @@ import {
   faMoon,
   faAngleDown,
   faCheck,
-} from "@fortawesome/free-solid-svg-icons"
-import { faLightbulb, faCopy } from "@fortawesome/free-regular-svg-icons"
+} from '@fortawesome/free-solid-svg-icons'
+import {faLightbulb, faCopy} from '@fortawesome/free-regular-svg-icons'
 
 library.add(
   faLinux,

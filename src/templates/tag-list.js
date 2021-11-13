@@ -1,21 +1,18 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import kebabCase from "lodash/kebabCase"
+import kebabCase from 'lodash/kebabCase'
 
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import {Link, graphql} from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-import styles from "./tag-list.module.scss"
-import { capitalizeString } from "../utils/capitalize-string"
+import styles from './tag-list.module.scss'
+import {capitalizeString} from '../utils/capitalize-string'
 
 export const pageQuery = graphql`
   query($postType: String!) {
-    allMarkdownRemark(
-      limit: 2000
-      filter: { frontmatter: { type: { eq: $postType } } }
-    ) {
+    allMdx(limit: 2000, filter: {frontmatter: {type: {eq: $postType}}}) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
@@ -31,9 +28,9 @@ const TagList = props => {
     <Layout>
       <SEO title="Tags :: Blog" />
       <div>
-        <h3>{capitalizeString(postType)} &gt;&gt; Tags</h3>
+        <h2>{capitalizeString(postType)} &gt;&gt; Tags</h2>
         <span className={styles.container}>
-          {props.data.allMarkdownRemark.group.map(tag => (
+          {props.data.allMdx.group.map(tag => (
             <Link
               to={`/${postType}/tags/${kebabCase(tag.fieldValue)}/`}
               key={tag.fieldValue}
@@ -50,7 +47,7 @@ const TagList = props => {
 
 TagList.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       group: PropTypes.arrayOf(
         PropTypes.shape({
           fieldValue: PropTypes.string.isRequired,

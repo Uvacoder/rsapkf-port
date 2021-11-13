@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react"
-import { Link } from "gatsby"
+import React, {useState, useEffect} from 'react'
+import {Link} from 'gatsby'
 
-import Layout from "./layout"
-import SEO from "./seo"
-import Spinner from "./spinner"
+import Layout from './layout'
+import SEO from './seo'
+import Spinner from './spinner'
 
-import { fetchData } from "../services/mastodon-api"
-import { formatDate } from "../utils/format-date"
-import { capitalizeString } from "../utils/capitalize-string"
+import {fetchData} from '../services/mastodon-api'
+import {formatDate} from '../utils/format-date'
+import {capitalizeString} from '../utils/capitalize-string'
 
-const MastodonData = ({ tag }) => {
+const MastodonData = ({tag}) => {
   const [response, setResponse] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -28,16 +28,16 @@ const MastodonData = ({ tag }) => {
   return (
     <Layout>
       <SEO title={capitalizedTag} />
-      <h3>{capitalizedTag}</h3>
+      <h2>{capitalizedTag}</h2>
       <p
         style={{
-          color: "#d6133d",
+          color: '#d6133d',
         }}
       >
         This is an experimental page.
       </p>
       <p>
-        These {tag} items are sourced from my{" "}
+        These {tag} items are sourced from my{' '}
         <a href="https://mastodon.social/@rsapkf">Mastodon toots</a> (tagged
         with #{tag}). If there's any error on this site, check out my Mastodon
         profile.
@@ -55,7 +55,7 @@ const MastodonData = ({ tag }) => {
                   <a href={item.url}>{formatDate(item.created_at)}</a>
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: item.content.replace(/<br \/>.*/gi, ""),
+                      __html: item.content.replace(/<br \/>.*/gi, ''),
                     }}
                   />
                 </li>
@@ -65,16 +65,16 @@ const MastodonData = ({ tag }) => {
       ) : (
         <div
           style={{
-            border: "1px solid #d6133d",
-            borderRadius: "5px",
-            padding: "20px",
+            border: '1px solid #d6133d',
+            borderRadius: '5px',
+            padding: '20px',
           }}
         >
           <p
             style={{
-              color: "#d6133d",
-              fontSize: "1.2rem",
-              fontFamily: "monospace",
+              color: '#d6133d',
+              fontSize: '1.2rem',
+              fontFamily: 'monospace',
             }}
           >
             {response}. Guru Meditation.

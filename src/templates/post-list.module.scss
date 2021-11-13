@@ -7,26 +7,25 @@
 .articles {
   list-style-type: none;
   margin: 0;
+  width: 100%;
 
-  @media (min-width: 640px) {
-    width: 100%;
+  @media (min-width: 768px) {
+    width: 80%;
   }
-
-  @media (min-width: 1024px) {
-    width: 50%;
+  @media (min-width: 1280px) {
+    width: 60%;
   }
 }
 
 .article {
-  margin: auto auto 1rem auto;
   padding: 0.75rem;
   border: 1px solid rgba(128, 128, 128, 0.4);
   border-radius: 5px;
   position: relative;
   min-width: 70%;
+  background: rgba(7, 5, 5, 0.01);
 
   &:hover {
-    background-color: rgba(49, 47, 47, 0.02);
     border-color: rgba(52, 73, 94, 0.9);
   }
 
@@ -34,19 +33,9 @@
     opacity: 0.8;
   }
 
-  .clipboard-span {
-    @media (min-width: 600px) {
-      display: none;
-    }
-  }
-
   .clipboard-icon {
     position: absolute;
-    top: 5px;
-    right: 5px;
-
-    @media (max-width: 600px) {
-      display: none;
-    }
+    top: 3.5px;
+    right: 3.5px;
   }
 }

@@ -1,27 +1,27 @@
-import React from "react"
-import { Link } from "gatsby"
-import styles from "./post-nav.module.scss"
+import React from 'react'
+import {Link} from 'gatsby'
+import styles from './post-nav.module.scss'
 
-export default function PostNav({ prev, next, postType }) {
+export default function PostNav({prev, next, postType}) {
   return (
     <div className={styles.container}>
       {prev && (
-        <div>
+        <span>
           <Link to={`/${postType}/${prev.node.fields.slug}`}>
-            <span className={styles.prev}>← Previous</span>
+            <span>← Previous</span>
             <br />
           </Link>
           <span className={styles.title}>{prev.node.frontmatter.title}</span>
-        </div>
+        </span>
       )}
       {next && (
-        <div style={{ float: "right" }}>
+        <span>
           <Link to={`/${postType}/${next.node.fields.slug}`}>
-            <span className={styles.next}>Next →</span>
+            <span>Next →</span>
             <br />
           </Link>
           <span className={styles.title}>{next.node.frontmatter.title}</span>
-        </div>
+        </span>
       )}
     </div>
   )

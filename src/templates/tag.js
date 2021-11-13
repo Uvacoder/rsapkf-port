@@ -1,18 +1,18 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import { Link, graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import {Link, graphql} from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
 
-import { capitalizeString } from "../utils/capitalize-string"
+import {capitalizeString} from '../utils/capitalize-string'
 
 export const pageQuery = graphql`
   query($tag: String) {
-    allMarkdownRemark(
+    allMdx(
       limit: 2000
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { tags: { in: [$tag] } } }
+      sort: {fields: [frontmatter___date], order: DESC}
+      filter: {frontmatter: {tags: {in: [$tag]}}}
     ) {
       totalCount
       edges {
@@ -22,7 +22,6 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            type
           }
         }
       }
@@ -30,22 +29,25 @@ export const pageQuery = graphql`
   }
 `
 
-const Tags = ({ pageContext, data }) => {
-  const { tag, postType } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} article${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+const Tags = ({pageContext, data}) => {
+  const {tag, postType} = pageContext
+  const {edges, totalCount} = data.allMdx
 
   return (
     <Layout>
       <SEO title={`#${tag} :: Tags :: ${capitalizeString(postType)}`} />
       <div>
-        <h3>{tagHeader}</h3>
+        <h2>
+          {capitalizeString(postType)} &gt;&gt; Tags &gt;&gt; #{tag}
+        </h2>
+        <p>
+          {totalCount} entr{totalCount === 1 ? 'y' : 'ies'} in{' '}
+          <Link to={`/${postType}`}>/{postType}</Link> tagged with "{tag}":
+        </p>
         <ul>
-          {edges.map(({ node }) => {
-            const { slug } = node.fields
-            const { title } = node.frontmatter
+          {edges.map(({node}) => {
+            const {slug} = node.fields
+            const {title} = node.frontmatter
             return (
               <li key={slug}>
                 <Link to={`/${postType}/${slug}`}>{title}</Link>
@@ -66,7 +68,7 @@ Tags.propTypes = {
     tag: PropTypes.string.isRequired,
   }),
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
+    allMdx: PropTypes.shape({
       totalCount: PropTypes.number.isRequired,
       edges: PropTypes.arrayOf(
         PropTypes.shape({

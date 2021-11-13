@@ -1,7 +1,7 @@
-import React from "react"
-import spinner from "../assets/grid.svg"
+import React from 'react'
+import spinner from '../assets/grid.svg'
 
-import ThemeContext from "../context/theme-context"
+import ThemeContext from '../context/theme-context'
 
 const Spinner = () => {
   return (
@@ -11,10 +11,10 @@ const Spinner = () => {
           <img
             src={spinner}
             style={{
-              width: "35px",
-              margin: "auto",
-              display: "block",
-              filter: !theme.dark ? "invert(1)" : null,
+              width: '35px',
+              margin: 'auto',
+              display: 'block',
+              filter: !theme.dark ? 'invert(1)' : null,
             }}
             alt="Loading..."
           />

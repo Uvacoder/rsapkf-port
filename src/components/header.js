@@ -1,12 +1,12 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import {Link} from 'gatsby'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-import styles from "./header.module.scss"
+import styles from './header.module.scss'
 // import sun from "../assets/sun.png"
 // import moon from "../assets/moon.png"
 
-import ThemeContext from "../context/theme-context"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import ThemeContext from '../context/theme-context'
 
 const Header = () => {
   return (
@@ -22,43 +22,10 @@ const Header = () => {
                 className={styles.navList}
                 style={{
                   color: theme.dark
-                    ? "rgb(142, 143, 142)"
-                    : "rgb(159, 43, 165)",
+                    ? 'rgb(142, 143, 142)'
+                    : 'rgb(159, 43, 165)',
                 }}
               >
-                <li className={styles.dropdown}>
-                  <button
-                    className={`${styles.navItem} ${styles.dropdownButton}`}
-                  >
-                    Writing
-                  </button>
-                  <div
-                    className={styles.dropdownContent}
-                    style={{
-                      backgroundColor: theme.dark ? "#01000e" : "#faf4fa",
-                    }}
-                  >
-                    <ul>
-                      <li>
-                        <Link to="/blog">
-                          <FontAwesomeIcon icon={["fas", "code-branch"]} /> Blog
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/thoughts">
-                          <FontAwesomeIcon icon={["far", "lightbulb"]} />{" "}
-                          Thoughts
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/hobbies">
-                          <FontAwesomeIcon icon={["fas", "puzzle-piece"]} />{" "}
-                          Hobbies
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
                 <li>
                   <Link
                     to="/projects"
@@ -69,15 +36,40 @@ const Header = () => {
                   </Link>
                 </li>
                 <li className={styles.dropdown}>
-                  <button
-                    className={`${styles.navItem} ${styles.dropdownButton}`}
-                  >
-                    pages
-                  </button>
+                  <button className={styles.dropdownButton}>writing</button>
                   <div
                     className={styles.dropdownContent}
                     style={{
-                      backgroundColor: theme.dark ? "#01000e" : "#faf4fa",
+                      backgroundColor: theme.dark ? '#01000e' : '#faf4fa',
+                    }}
+                  >
+                    <ul>
+                      <li>
+                        <Link to="/blog">
+                          <FontAwesomeIcon icon={['fas', 'code-branch']} /> Blog
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/thoughts">
+                          <FontAwesomeIcon icon={['far', 'lightbulb']} />{' '}
+                          Thoughts
+                        </Link>
+                      </li>
+                      <li>
+                        <Link to="/hobbies">
+                          <FontAwesomeIcon icon={['fas', 'puzzle-piece']} />{' '}
+                          Hobbies
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li className={styles.dropdown}>
+                  <button className={styles.dropdownButton}>pages</button>
+                  <div
+                    className={styles.dropdownContent}
+                    style={{
+                      backgroundColor: theme.dark ? '#01000e' : '#faf4fa',
                     }}
                   >
                     <ul>
@@ -87,7 +79,7 @@ const Header = () => {
                       <li>
                         <Link
                           to="/contact"
-                          style={{ borderBottom: "1px solid gray" }}
+                          style={{borderBottom: '1px solid gray'}}
                         >
                           Contact
                         </Link>
@@ -98,7 +90,7 @@ const Header = () => {
                       <li>
                         <Link
                           to="/puzzles"
-                          style={{ borderBottom: "1px solid gray" }}
+                          style={{borderBottom: '1px solid gray'}}
                         >
                           Puzzle list
                         </Link>
@@ -107,14 +99,12 @@ const Header = () => {
                         <Link to="/recommendations">Recommendations</Link>
                       </li>
                       <li>
-                        <Link to="/books">
-                          <FontAwesomeIcon icon={["fas", "book"]} /> Books
-                        </Link>
+                        <Link to="/books">Books</Link>
                       </li>
                       <li>
                         <Link
                           to="/movies-tv"
-                          style={{ borderBottom: "1px solid gray" }}
+                          style={{borderBottom: '1px solid gray'}}
                         >
                           Movies and shows
                         </Link>
@@ -125,9 +115,9 @@ const Header = () => {
                       <li>
                         <Link
                           to="/donate"
-                          style={{ borderBottom: "1px solid gray" }}
+                          style={{borderBottom: '1px solid gray'}}
                         >
-                          <FontAwesomeIcon icon={["fas", "donate"]} /> Donate
+                          Donate
                         </Link>
                       </li>
                       <li>
@@ -136,7 +126,7 @@ const Header = () => {
                       <li>
                         <Link
                           to="/uses"
-                          style={{ borderBottom: "1px solid gray" }}
+                          style={{borderBottom: '1px solid gray'}}
                         >
                           Uses
                         </Link>
@@ -151,15 +141,11 @@ const Header = () => {
                   </div>
                 </li>
                 <li className={styles.dropdown}>
-                  <button
-                    className={`${styles.navItem} ${styles.dropdownButton}`}
-                  >
-                    links
-                  </button>
+                  <button className={styles.dropdownButton}>links</button>
                   <div
                     className={styles.dropdownContent}
                     style={{
-                      backgroundColor: theme.dark ? "#01000e" : "#faf4fa",
+                      backgroundColor: theme.dark ? '#01000e' : '#faf4fa',
                     }}
                   >
                     <ul>
@@ -171,11 +157,11 @@ const Header = () => {
                       </li>
                       <li>
                         <a
-                          href="https://github.com/rsapkf/dotfiles/"
+                          href="https://github.com/rsapkf/config/"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <FontAwesomeIcon icon={["fab", "linux"]} /> Dotfiles
+                          <FontAwesomeIcon icon={['fab', 'linux']} /> Dotfiles
                         </a>
                       </li>
                       <li>
@@ -184,7 +170,7 @@ const Header = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <FontAwesomeIcon icon={["fas", "cube"]} /> CFOP algs
+                          <FontAwesomeIcon icon={['fas', 'cube']} /> CFOP algs
                         </a>
                       </li>
                     </ul>
@@ -200,14 +186,14 @@ const Header = () => {
               {theme.dark ? (
                 // <img src={sun} alt="Sun" />
                 <FontAwesomeIcon
-                  icon={["fas", "sun"]}
-                  style={{ color: "#e1daeccc", fontSize: "0.9rem" }}
+                  icon={['fas', 'sun']}
+                  style={{color: '#e1daeccc', fontSize: '0.9rem'}}
                 />
               ) : (
                 // <img src={moon} alt="Moon" />
                 <FontAwesomeIcon
-                  icon={["fas", "moon"]}
-                  style={{ color: "#403742", fontSize: "0.9rem" }}
+                  icon={['fas', 'moon']}
+                  style={{color: '#403742', fontSize: '0.9rem'}}
                 />
               )}
             </button>

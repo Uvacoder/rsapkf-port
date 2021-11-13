@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 
-const LastUpdatedPages = ({ date }) => {
+const LastUpdatedPages = ({date}) => {
   return (
     <div>
       <small>Last updated: {date}</small>

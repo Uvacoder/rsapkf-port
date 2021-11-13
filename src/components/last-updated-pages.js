@@ -3,9 +3,7 @@ import React from "react"
 const LastUpdatedPages = ({ date }) => {
   return (
     <div>
-      <small>
-        <i>Last updated: {date}</i>
-      </small>
+      <small>Last updated: {date}</small>
       <hr />
     </div>
   )

@@ -36,13 +36,15 @@ export const query = graphql`
 
 const Posts = props => {
   const postType = props.pageContext.postType
+  const slug = props.data.markdownRemark.fields.slug
   const {
     title,
     date,
     lastUpdated,
     tags,
   } = props.data.markdownRemark.frontmatter
-  const permalink = `${props.data.site.siteMetadata.siteUrl}/${postType}/${props.data.markdownRemark.fields.slug}`
+  const permalink = `${props.data.site.siteMetadata.siteUrl}/${postType}/${slug}`
+  const editUrl = `https://github.com/rsapkf/www/blob/main/src/writing/${postType}/${slug}/index.md`
 
   return (
     <Layout>
@@ -53,9 +55,12 @@ const Posts = props => {
       />
       <h2 className={styles.title}>{title}</h2>
       <small>
-        {date} · {props.data.markdownRemark.timeToRead} min read ·{" "}
-        {postType === "blog" || postType === "hobbies"
-          ? tags.slice(0, 4).map((tag, idx) => (
+        {date} · {props.data.markdownRemark.timeToRead} min read
+        {postType === "blog" || postType === "hobbies" ? (
+          <>
+            {" "}
+            ·{" "}
+            {tags.slice(0, 4).map((tag, idx) => (
               <span key={idx}>
                 <Link
                   to={`/${postType}/tags/${tag}`}
@@ -64,16 +69,21 @@ const Posts = props => {
                   #{tag}
                 </Link>{" "}
               </span>
-            ))
-          : ""}
-        <CopyPermalink link={permalink} />
+            ))}
+          </>
+        ) : (
+          ""
+        )}{" "}
+        · Last updated: {lastUpdated} · <CopyPermalink link={permalink} />
+        <hr />
       </small>
-      <hr />
       <div
         dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}
       ></div>
-      <small>
-        <i>Last updated: {lastUpdated}</i>
+      <small style={{ marginTop: "20px" }}>
+        <a href={editUrl} target="_blank" rel="noreferrer noopener">
+          Edit this page
+        </a>
       </small>
       <hr />
       <PostNav

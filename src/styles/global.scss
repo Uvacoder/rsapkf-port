@@ -467,7 +467,7 @@ ul {
   margin-bottom: 1.45rem;
   list-style-position: outside;
   list-style-image: none;
-  line-height: 1.45rem;
+  line-height: 1.7em;
 }
 ol {
   margin-left: 1.45rem;
@@ -601,7 +601,7 @@ th {
   font-weight: bold;
 }
 li {
-  margin-bottom: calc(1.45rem / 2);
+  margin-bottom: calc(1.45rem / 3);
 }
 ol li {
   padding-left: 0;
@@ -611,13 +611,13 @@ ul li {
 }
 li > ol {
   margin-left: 1.45rem;
-  margin-bottom: calc(1.45rem / 2);
-  margin-top: calc(1.45rem / 2);
+  margin-bottom: calc(1.45rem / 3);
+  margin-top: calc(1.45rem / 3);
 }
 li > ul {
   margin-left: 1.45rem;
-  margin-bottom: calc(1.45rem / 2);
-  margin-top: calc(1.45rem / 2);
+  margin-bottom: calc(1.45rem / 3);
+  margin-top: calc(1.45rem / 3);
 }
 blockquote *:last-child {
   margin-bottom: 0;

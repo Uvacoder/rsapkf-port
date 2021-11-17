@@ -57,9 +57,8 @@ const Posts = props => {
       <MDXRenderer>{props.data.mdx.body}</MDXRenderer>
       <div className={styles.articleFooter}>
         <div>
-          Posted in <Link to={`/${postType}`}>/{postType}</Link> on {date}.
+          Posted in <Link to={`/${postType}`}>/{postType}</Link>
         </div>
-        <div>Last updated: {lastUpdated}</div>
         <div>
           Categories:{' '}
           {tags.slice(0, 4).map((tag, idx) => (

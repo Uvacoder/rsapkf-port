@@ -4,4 +4,4 @@
 
 Source for my [homepage](https://rsapkf.xyz).
 
-_Built using [GatsbyJS](https://github.com/gatsbyjs/gatsby). Forked from [gatsbyjs/gatsby-starter-hello-world](https://github.com/gatsbyjs/gatsby-starter-hello-world)._
+_Built using [Gatsby](https://github.com/gatsbyjs/gatsby). Forked from [gatsbyjs/gatsby-starter-hello-world](https://github.com/gatsbyjs/gatsby-starter-hello-world)._

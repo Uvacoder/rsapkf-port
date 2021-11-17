@@ -3,7 +3,7 @@
 
 /* Tech stack */
    Languages: HTML, CSS (SCSS), JavaScript, Markdown, MDX
-   Frameworks: ReactJS, GraphQL, GatsbyJS, NodeJS
+   Frameworks: React, GraphQL, Gatsby, Node.js
    Tools: Netlify, Neovim, Debian 9, rxvt-unicode, st, Git, GitHub, Firefox Developer Edition, Chromium, VSCodium, npm...
    Icons: Font Awesome
    Fonts: Google Fonts, https://github.com/majodev/google-webfonts-helper

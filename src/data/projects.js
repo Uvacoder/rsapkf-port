@@ -47,7 +47,7 @@ export const projects = [
           'Browse the Lex Fridman Podcast with stats, categories and books mentioned on the episodes.',
         homepage: 'https://lfplibrary.netlify.app/',
         builtWith:
-          'Gatsby, TailwindCSS, Algolia, React Table, styled-components, Chart.js',
+          'Gatsby, Tailwind CSS, Algolia, React Table, styled-components, Chart.js',
         isPrivate: true,
       },
       {

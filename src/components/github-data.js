@@ -1,40 +1,38 @@
 import React, {useState, useEffect} from 'react'
-import styles from './github-project-data.module.scss'
-import {fetchData} from '../services/github-api'
+import styles from './github-data.module.scss'
 
-const GitHubProjectData = ({project}) => {
-  const [starsCount, setStarsCount] = useState(0)
-  const [forksCount, setForksCount] = useState(0)
-  const [description, setDescription] = useState('')
-  const [projectHomepage, setProjectHomepage] = useState('')
+import {fetchGitHubData} from '../services/github-api'
+
+const GitHubData = ({project}) => {
+  const [description, setDescription] = useState(project.description)
+  const [homepage, setHomepage] = useState(project.homepage)
+  const [stars, setStars] = useState(project.stars)
+  const [forks, setForks] = useState(project.forks)
 
   const starsgazersUrl = `${project.repository}/stargazers`
   const forksUrl = `${project.repository}/network/members`
 
   useEffect(() => {
-    const fetchGitHubData = async () => {
-      const res = await fetchData(project)
+    const getData = async () => {
+      const res = await fetchGitHubData(project)
 
       setDescription(res.description)
-      setProjectHomepage(res.homepage)
-      setStarsCount(res.stargazersCount)
-      setForksCount(res.forksCount)
+      setHomepage(res.homepage)
+      setStars(res.stars)
+      setForks(res.forks)
     }
 
-    fetchGitHubData(project)
+    if (!project.private) getData(project)
   }, [project])
 
   return (
     <>
-      <a
-        href={`${projectHomepage || project.repository}`}
-      >{`${project.name}`}</a>
-      :{' '}
+      <a href={`${homepage || project.repository}`}>{`${project.name}`}</a>:{' '}
       {description
         .replace("@rsapkf's ", '')
         .replace(/^\w/, c => c.toUpperCase())}
       <br />
-      {!project.isPrivate && project.homepage && (
+      {!project.private && project.homepage && (
         <span>
           <a href={project.repository}>Source</a>
         </span>
@@ -44,17 +42,17 @@ const GitHubProjectData = ({project}) => {
           [<strong>{project.builtWith}</strong>]
         </span>
       )}
-      {!project.isPrivate && starsCount > 0 && (
+      {!project.private && stars > 0 && (
         <div className={styles.metrics}>
           <span className={styles.metric}>Stars</span>:{' '}
           <a href={starsgazersUrl} className={styles.metricCount}>
             {' '}
-            {starsCount}
+            {stars}
           </a>{' '}
           · <span className={styles.metric}>Forks</span>:{' '}
           <a href={forksUrl} className={styles.metricCount}>
             {' '}
-            {forksCount}
+            {forks}
           </a>
         </div>
       )}
@@ -62,4 +60,4 @@ const GitHubProjectData = ({project}) => {
   )
 }
 
-export default GitHubProjectData
+export default GitHubData

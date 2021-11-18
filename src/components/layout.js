@@ -1,17 +1,17 @@
 import React from 'react'
 import {Link} from 'gatsby'
+import {MDXProvider} from '@mdx-js/react'
 
 import Header from './header'
 import Footer from './footer'
 import SEO from './seo'
 import LastUpdatedPages from './last-updated-pages'
 
+import ThemeContext from '../context/theme-context'
+
 import '../styles/global.scss'
 import '../styles/typography.scss'
 import styles from './layout.module.scss'
-
-import ThemeContext from '../context/theme-context'
-import {MDXProvider} from '@mdx-js/react'
 import './font-awesome'
 
 const shortcodes = {Link, SEO, LastUpdatedPages}

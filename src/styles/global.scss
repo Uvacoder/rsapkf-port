@@ -53,10 +53,10 @@ a {
     font-family: 'Font Awesome 5 Brands';
     font-weight: 400;
     color: rgb(85, 78, 78);
-    font-size: 0.65rem;
+    font-size: 0.5rem;
     padding: 0.15rem;
     position: relative;
-    bottom: 0.2rem;
+    bottom: 0.4rem;
   }
 
   &[href$='.pdf']::after {
@@ -150,11 +150,13 @@ section {
   display: block;
 }
 details {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 summary {
   font-weight: bold;
   font-size: 1.1rem;
+  cursor: pointer;
+  padding-bottom: 0.2rem;
 }
 audio,
 canvas,

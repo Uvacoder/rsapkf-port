@@ -1,23 +1,3 @@
-:root {
-  --shadow-color: 0deg 0% 0%;
-  --shadow-elevation-low: 0.7px 0.6px 1.2px hsl(var(--shadow-color) / 0.05),
-    1.2px 1px 2.1px -0.6px hsl(var(--shadow-color) / 0.08),
-    2.7px 2.2px 4.6px -1.2px hsl(var(--shadow-color) / 0.12);
-  --shadow-elevation-medium: 0.7px 0.6px 1.2px hsl(var(--shadow-color) / 0.05),
-    2.8px 2.3px 4.8px -0.4px hsl(var(--shadow-color) / 0.08),
-    6.1px 5px 10.5px -0.8px hsl(var(--shadow-color) / 0.11),
-    13.4px 11.1px 23.1px -1.2px hsl(var(--shadow-color) / 0.14);
-  --shadow-elevation-high: 0.7px 0.6px 1.2px hsl(var(--shadow-color) / 0.04),
-    5px 4.1px 8.6px -0.1px hsl(var(--shadow-color) / 0.05),
-    8.9px 7.4px 15.4px -0.3px hsl(var(--shadow-color) / 0.06),
-    13.1px 10.9px 22.6px -0.4px hsl(var(--shadow-color) / 0.07),
-    18.5px 15.4px 32px -0.6px hsl(var(--shadow-color) / 0.08),
-    25.8px 21.4px 44.5px -0.7px hsl(var(--shadow-color) / 0.09),
-    35.8px 29.7px 61.7px -0.9px hsl(var(--shadow-color) / 0.11),
-    49.2px 40.9px 84.9px -1px hsl(var(--shadow-color) / 0.12),
-    66.9px 55.6px 115.5px -1.2px hsl(var(--shadow-color) / 0.13);
-}
-
 $header-theme-color: rgb(65, 184, 65);
 
 .header {
@@ -185,6 +165,6 @@ $header-theme-color: rgb(65, 184, 65);
   all: unset;
   display: inline-block;
   cursor: pointer;
-  margin-left: 1rem;
-  margin-top: -12px;
+  margin-left: 0.6rem;
+  margin-top: -10px;
 }

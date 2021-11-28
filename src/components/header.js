@@ -150,10 +150,22 @@ const Header = () => {
                   >
                     <ul>
                       <li>
-                        <a href="https://links.rsapkf.xyz/">Linkroll</a>
+                        <a
+                          href="https://links.rsapkf.xyz/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Linkroll
+                        </a>
                       </li>
                       <li>
-                        <a href="https://notes.rsapkf.xyz/">Notes</a>
+                        <a
+                          href="https://notes.rsapkf.xyz/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Notes
+                        </a>
                       </li>
                       <li>
                         <a
@@ -187,13 +199,13 @@ const Header = () => {
                 // <img src={sun} alt="Sun" />
                 <FontAwesomeIcon
                   icon={['fas', 'sun']}
-                  style={{color: '#e1daeccc', fontSize: '0.9rem'}}
+                  style={{color: '#e1daeccc', fontSize: '0.8rem'}}
                 />
               ) : (
                 // <img src={moon} alt="Moon" />
                 <FontAwesomeIcon
                   icon={['fas', 'moon']}
-                  style={{color: '#403742', fontSize: '0.9rem'}}
+                  style={{color: '#403742', fontSize: '0.8rem'}}
                 />
               )}
             </button>

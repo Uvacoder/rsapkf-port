@@ -30,9 +30,9 @@ export const projects = [
         forks: 1,
       },
       {
-        name: 'config',
+        name: '777',
         description: "@rsapkf's dotfiles.",
-        repository: 'https://github.com/rsapkf/config',
+        repository: 'https://github.com/rsapkf/777',
         stars: 1,
         forks: 0,
       },
@@ -86,9 +86,9 @@ export const projects = [
     label: 'Miscellaneous',
     items: [
       {
-        name: 'rupiks',
+        name: '20',
         description: "SVG and PNG visualizations for Rubik's Cube algs.",
-        repository: 'https://github.com/rsapkf/rupiks',
+        repository: 'https://github.com/rsapkf/20',
         builtWith: 'VisualCube',
         stars: 0,
         forks: 0,

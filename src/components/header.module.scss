@@ -89,20 +89,21 @@ $header-theme-color: rgb(65, 184, 65);
   cursor: pointer;
 
   &::after {
-    content: '\f107'; // angle-down
+    content: '\f067'; // angle-down
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
     display: inline-block;
-    color: #554e4e;
+    color: #5a5656;
     position: relative;
-    top: 0;
-    left: 5px;
+    top: -2px;
+    left: 3px;
     margin-right: 5px;
     transition: all 0.6s ease;
   }
 
   &:hover::after {
+    content: '\f068';
     transform: rotate(-180deg);
   }
 
@@ -112,6 +113,12 @@ $header-theme-color: rgb(65, 184, 65);
     .dropdown-content {
       display: block;
       z-index: 1;
+    }
+
+    .dropdown {
+      &:after {
+        content: '\f068';
+      }
     }
   }
 }
@@ -139,7 +146,7 @@ $header-theme-color: rgb(65, 184, 65);
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
-  margin-left: -35px;
+  margin-left: -65px;
 
   ul {
     list-style: none;
@@ -166,5 +173,5 @@ $header-theme-color: rgb(65, 184, 65);
   display: inline-block;
   cursor: pointer;
   margin-left: 0.6rem;
-  margin-top: -10px;
+  margin-top: -13px;
 }

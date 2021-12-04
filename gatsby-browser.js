@@ -7,9 +7,9 @@ export const wrapRootElement = ({element}) => (
   <ThemeProvider>{element}</ThemeProvider>
 )
 
-// PrismJS themes
+// Prism themes
 require('prismjs/themes/prism-tomorrow.css')
 
-// PrismJS plugins
+// Prism plugins
 require('prismjs/plugins/command-line/prism-command-line.css')
 require('prismjs/plugins/line-numbers/prism-line-numbers.css')

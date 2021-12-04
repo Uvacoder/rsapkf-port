@@ -3,8 +3,6 @@ import {Link} from 'gatsby'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
 import styles from './header.module.scss'
-// import sun from "../assets/sun.png"
-// import moon from "../assets/moon.png"
 
 import ThemeContext from '../context/theme-context'
 
@@ -65,7 +63,55 @@ const Header = () => {
                   </div>
                 </li>
                 <li className={styles.dropdown}>
-                  <button className={styles.dropdownButton}>pages</button>
+                  <button className={styles.dropdownButton}>links</button>
+                  <div
+                    className={styles.dropdownContent}
+                    style={{
+                      backgroundColor: theme.dark ? '#01000e' : '#faf4fa',
+                    }}
+                  >
+                    <ul>
+                      <li>
+                        <a
+                          href="https://links.rsapkf.xyz/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Linkroll
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://notes.rsapkf.xyz/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Notes
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://github.com/rsapkf/config/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={['fab', 'linux']} /> Dotfiles
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://github.com/rsapkf/20/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FontAwesomeIcon icon={['fas', 'cube']} /> CFOP algs
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li className={styles.dropdown}>
+                  <button className={styles.dropdownButton}>etc</button>
                   <div
                     className={styles.dropdownContent}
                     style={{
@@ -140,54 +186,6 @@ const Header = () => {
                     </ul>
                   </div>
                 </li>
-                <li className={styles.dropdown}>
-                  <button className={styles.dropdownButton}>links</button>
-                  <div
-                    className={styles.dropdownContent}
-                    style={{
-                      backgroundColor: theme.dark ? '#01000e' : '#faf4fa',
-                    }}
-                  >
-                    <ul>
-                      <li>
-                        <a
-                          href="https://links.rsapkf.xyz/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Linkroll
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://notes.rsapkf.xyz/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          Notes
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://github.com/rsapkf/config/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FontAwesomeIcon icon={['fab', 'linux']} /> Dotfiles
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://github.com/rsapkf/rupiks/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <FontAwesomeIcon icon={['fas', 'cube']} /> CFOP algs
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
               </ul>
             </nav>
             <button
@@ -196,13 +194,11 @@ const Header = () => {
               onClick={theme.toggleDark}
             >
               {theme.dark ? (
-                // <img src={sun} alt="Sun" />
                 <FontAwesomeIcon
                   icon={['fas', 'sun']}
                   style={{color: '#e1daeccc', fontSize: '0.8rem'}}
                 />
               ) : (
-                // <img src={moon} alt="Moon" />
                 <FontAwesomeIcon
                   icon={['fas', 'moon']}
                   style={{color: '#403742', fontSize: '0.8rem'}}

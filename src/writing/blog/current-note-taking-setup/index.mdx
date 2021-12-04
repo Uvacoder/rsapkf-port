@@ -10,21 +10,21 @@ slug: current-note-taking-setup
 
 With an overwhelmingly increasing number of productivity tools and note-taking applications on the market, it is becoming more and more difficult to settle on one particular application/workflow for taking notes. Over the years, I've tried many many setups for this: from pen and paper to completely offline solutions like txt files, [VimWiki](https://github.com/vimwiki/vimwiki), [Zettlr](https://github.com/zettlr/zettlr) and [MarkText](https://github.com/marktext/marktext), [Joplin](https://github.com/laurent22/joplin) and SaaS products like [this one](https://roamresearch.com/) and methods like [Zettelkasten](https://en.wikipedia.org/wiki/Zettelkasten) (this didn't work for my programming notes), I've tried a plethora of apps that are out there. For the past few months, however, I've settled on a simple workflow that I'll explain below.
 
-→ [Summary](#summary)
+[Tl;DR](#tldr)
 
-**Disclaimer**: I am not a researcher who has to read multiple academic papers every day and annotate things for later use. This is just my **current** note-taking setup that works for me.
+**Note**: I am not a researcher who has to read multiple academic papers every day and annotate things for later use. This is just my **current** note-taking setup that works for me.
 
 First, let's look at the high level overview of what my notes consist of (yet). There are typically 3 kinds of notes that I take:
 
 - Links (websites, go-to guides/articles/blog posts/lists online)
-- Snippets of code or information (notes from books: programming + non-fiction, courses, MOOCs, Mathematics, pieces of objective information)
+- Snippets of code or information (notes from books: programming + non-fiction, courses, MOOCs, mathematics, pieces of objective information)
 - Temporary stuff (project ideas, short term todos, grocery list, scratchpad, etc)
 
 For all types of notes, I like a simple and lightweight markup language, namely Markdown. Markdown is supported by all major static site generators making it easier to publish my notes to the web and learning Markdown takes virtually no time.
 
 Secondly, here are the features I'm looking for in my workflow:
 
-- I need to be able to edit notes quickly in Markdown, ideally within a Tmux pane on my terminal using Vim.
+- I need to be able to edit notes quickly in Markdown, ideally within a tmux pane on my terminal using Vim.
 - I should be able to sync and edit all my data across devices.
 - My private notes must be end-to-end encrypted if on cloud.
 
@@ -94,7 +94,9 @@ I am learning an advanced LaTeX and a cool vim + [UltiSnips](https://github.com/
 
 I manage highly sensitive information like recovery codes, paper keys, API keys, etc with a password manager. I recommend [Bitwarden](https://github.com/bitwarden) or [KeePassXC](https://keepassxc.org/).
 
-The other kinds of notes (well, these are what I consider to be notes) are my dotfiles and this blog. I try to document everything on my config files so I can understand what each line of configuration is doing. I store these on [GitHub](https://github.com/rsapkf/config) and use a [technique](https://news.ycombinator.com/item?id=11071754) I learned from HN to manage my config files.
+### Dotfiles and blog
+
+I try to document everything on my config files so I can understand what each line of configuration is doing. I store these on [GitHub](https://github.com/rsapkf/config) and use a [technique](https://news.ycombinator.com/item?id=11071754) I learned from HN to manage my config files.
 
 For this blog, I use [Gatsby](https://github.com/gatsbyjs/gatsby) along with [gatsby-transformer-remark](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-transformer-remark) and [gatsby-source-filesystem](https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-filesystem) plugins that allow me to read Markdown files from the filesystem and generate HTML pages from these files. I will write more on setting up this site in a future blog post.
 
@@ -102,6 +104,6 @@ For this blog, I use [Gatsby](https://github.com/gatsbyjs/gatsby) along with [ga
 
 I use Standard Notes for these as well. A better solution for more ephemeral notes and todos would be something like [Tasks.org](https://github.com/tasks/tasks) but this just adds one more application to my setup and phone. For temporary grocery list and stuff, I use [todo.txt](https://github.com/todotxt/todo.txt-cli) and the default Notes app that comes with my phone (in offline mode) and for long-term todos, I use Standard Notes and tags.
 
-## <a href="#summary" id="summary">#</a> Summary
+## <a href="#tldr" id="tldr">#</a> TL;DR
 
 In a nutshell, most of my notes are stored in [Markdown](https://daringfireball.net/projects/markdown/syntax) files inside folders on my hard drive. I use [Neovim](https://github.com/neovim/neovim) and [gedit](https://gitlab.gnome.org/GNOME/gedit) to edit these notes and [Git](https://git-scm.com/) for version control and sync. I share [some](https://github.com/rsapkf/42/) [of](https://github.com/rsapkf/config) [them](https://github.com/rsapkf/73) with the world, and for private notes, I use end-to-end encrypted services: [Firefox](https://www.mozilla.org/en-US/firefox/), [Standard Notes](https://github.com/standardnotes/), and [Bitwarden](https://github.com/bitwarden). I use [Firefox Sync](https://support.mozilla.org/en-US/products/firefox/sync) to save and sync links that I want to read later.

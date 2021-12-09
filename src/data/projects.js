@@ -45,7 +45,7 @@ export const projects = [
         name: 'LFP Library',
         description:
           'Browse the Lex Fridman Podcast with stats, categories and books mentioned on the episodes.',
-        homepage: 'https://lfplibrary.netlify.app/',
+        homepage: 'https://lfplibrary.com/',
         builtWith:
           'Gatsby, Tailwind CSS, Algolia, React Table, styled-components, Chart.js',
         private: true,

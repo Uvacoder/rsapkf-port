@@ -27,7 +27,14 @@ const GitHubData = ({project}) => {
 
   return (
     <>
-      <a href={`${homepage || project.repository}`}>{`${project.name}`}</a>:{' '}
+      <a
+        href={`${homepage || project.repository}`}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {`${project.name}`}
+      </a>
+      :{' '}
       {description
         .replace("@rsapkf's ", '')
         .replace(/^\w/, c => c.toUpperCase())}

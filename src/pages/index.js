@@ -13,7 +13,7 @@ const IndexPage = () => {
         and *nix aficionado. You've reached my homepage on the World Wide Web.
         <br />
         <br />I make full-stack web applications with modern{' '}
-        <a href="https://developer.mozilla.org/en-US/">ES6</a> ,{' '}
+        <a href="https://developer.mozilla.org/en-US/">ES6</a>,{' '}
         <a href="https://www.startpage.com/do/metasearch.pl?query=mern%20stack">
           MERN stack
         </a>

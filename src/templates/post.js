@@ -67,11 +67,11 @@ const Posts = props => {
             </span>
           ))}
         </div>
+        <CopyPermalink link={permalink} /> · <Link to="/contact">Feedback</Link>{' '}
+        ·{' '}
         <a href={editUrl} target="_blank" rel="noreferrer noopener">
           Edit
-        </a>{' '}
-        · <Link to="/contact">Feedback</Link> ·{' '}
-        <CopyPermalink link={permalink} />
+        </a>
         <PostNav
           prev={props.pageContext.prevPost}
           next={props.pageContext.nextPost}

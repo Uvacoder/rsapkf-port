@@ -25,7 +25,11 @@ const SEO = ({title, description, image, article}) => {
   }
 
   return (
-    <Helmet title={seo.title} titleTemplate={titleTemplate}>
+    <Helmet
+      title={seo.title}
+      defaultTitle={defaultTitle}
+      titleTemplate={titleTemplate}
+    >
       {/* General */}
       <html lang="en" />
       <meta name="description" content={seo.description} />
@@ -34,15 +38,14 @@ const SEO = ({title, description, image, article}) => {
 
       {/* Open Graph */}
       <meta property="og:url" content={seo.url} />
-      <meta property="og:title" content={seo.title} />
+      <meta property="og:title" content={`${seo.title} :: ${defaultTitle}`} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={twitter} />
-      <meta name="twitter:creator" content={twitter} />
-      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:title" content={`${seo.title} :: ${defaultTitle}`} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
     </Helmet>

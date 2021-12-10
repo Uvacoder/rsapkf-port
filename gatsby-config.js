@@ -5,8 +5,7 @@ module.exports = {
     title: 'rsapkf',
     titleTemplate: '%s :: [rsapkf/www]',
     author: 'rsapkf',
-    description:
-      'Developer, autodidact, open source advocate & GNU/Linux aficionado.',
+    description: 'Developer, autodidact & *nix aficionado.',
     siteUrl: 'https://rsapkf.xyz',
     image: '/favicon.png',
     social: {

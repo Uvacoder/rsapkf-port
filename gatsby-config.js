@@ -73,7 +73,7 @@ module.exports = {
         feeds: [
           // /blog
           {
-            serialize: ({query: {site, allMdx}}) => {
+            serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
@@ -86,7 +86,7 @@ module.exports = {
                     site.siteMetadata.siteUrl +
                     '/blog/' +
                     edge.node.fields.slug,
-                  custom_elements: [{'content:encoded': edge.node.html}],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 })
               })
             },
@@ -117,7 +117,7 @@ module.exports = {
           },
           // /thoughts
           {
-            serialize: ({query: {site, allMdx}}) => {
+            serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
@@ -130,7 +130,7 @@ module.exports = {
                     site.siteMetadata.siteUrl +
                     '/thoughts/' +
                     edge.node.fields.slug,
-                  custom_elements: [{'content:encoded': edge.node.html}],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 })
               })
             },
@@ -161,7 +161,7 @@ module.exports = {
           },
           // /hobbies
           {
-            serialize: ({query: {site, allMdx}}) => {
+            serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
@@ -174,7 +174,7 @@ module.exports = {
                     site.siteMetadata.siteUrl +
                     '/hobbies/' +
                     edge.node.fields.slug,
-                  custom_elements: [{'content:encoded': edge.node.html}],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 })
               })
             },
@@ -205,14 +205,14 @@ module.exports = {
           },
           // All
           {
-            serialize: ({query: {site, allMdx}}) => {
+            serialize: ({ query: { site, allMdx } }) => {
               return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + '/' + edge.node.fields.slug,
-                  custom_elements: [{'content:encoded': edge.node.html}],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 })
               })
             },

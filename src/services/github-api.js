@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import {GITHUB_USERNAME} from '../constants'
+import { GITHUB_USERNAME } from '../constants'
 const baseUrl = 'https://api.github.com/'
 
 export const fetchGitHubData = async project => {
@@ -17,7 +17,7 @@ export const fetchGitHubData = async project => {
     } = await axios({
       method: 'get',
       url: `${baseUrl}repos/${GITHUB_USERNAME}/${repo}`,
-      timeout: 2000,
+      timeout: 4000,
       headers: {
         Authorization: `token ${process.env.GATSBY_GITHUB_PERSONAL_ACCESS_TOKEN}`,
       },

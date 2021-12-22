@@ -8,10 +8,6 @@ type: blog
 slug: beginners-guide-to-digital-privacy
 ---
 
-The following are basic instructions for beginners on maintaining privacy on the Internet. I use most of these services myself and highly recommend using these. Most of these are open-source projects. Please contribute to the maintainers via donations/code if you find them useful.
-
-<!-- truncate -->
-
 _\* Slightly advanced tips_
 
 ## Basics
@@ -55,13 +51,13 @@ _\* Slightly advanced tips_
 
 - Quit using Google, Microsoft, Apple, Facebook products for **personal/sensitive use cases**.
 
-  These companies are great for security of your data, they hire top engineers from around the world but are worse for your privacy, esp. if they rely on advertisement for their revenue. If you have to use Google, go to your account settings and turn off all the [activity controls](https://myactivity.google.com/activitycontrols) and [ads personalization](https://adssettings.google.com/). Go through similar settings on your dashboard for other accounts- Apple, Microsoft, etc.
+  These companies are great for security of your data (for the most part), they hire top engineers from around the world but are worse for your privacy, esp. if they rely on advertisement for their revenue. If you have to use Google, go to your account settings and turn off all the [activity controls](https://myactivity.google.com/activitycontrols) and [ads personalization](https://adssettings.google.com/). Go through similar settings on your dashboard for other accounts.
 
-- **Always** choose "Sign up with Email" while signing up on websites.
+- **Always** choose "Sign up with Email" while signing up on websites. ([?](https://en.wikipedia.org/wiki/OAuth))
 
-  I cannot stress this enough. Please **do not** ever, unless mandatory, choose "Sign up with Google/Microsoft/Twitter/Facebook/Apple/Amazon, etc".
+  Unless mandatory, you should not continue with social signup (Sign up with Google/Microsoft/Twitter/Facebook/Apple/Amazon, etc).
 
-  If you are required to continue with social signup ([OAuth](https://en.wikipedia.org/wiki/OAuth)), take care of what scopes and information you are permitting the service to use. Platforms usually provide a way to manage this info from your account settings:
+  If you are required to do so, take care of what scopes and information you are permitting the service to use. Platforms usually provide a way to manage this info from your account settings:
 
   - [Twitter Connected Apps](https://twitter.com/settings/connected_apps)
   - [Facebook Apps and Websites](https://www.facebook.com/settings?tab=applications)
@@ -71,11 +67,13 @@ _\* Slightly advanced tips_
 
 - Create separate email accounts/aliases for signups, newsletters, communication, banking, music, gaming, etc.
 
-  Many email providers like ProtonMail and Google allow for unlimited aliases by adding a dot(.) in your email username. For example, `funnypanda@protonmail.com` and `funny.panda@protonmail.com` or `fun.nypand.a@protonmail.com` are essentially the same addresses. The messages sent to either of these address will arrive at the same inbox. **This tip won't work for Tutanota**. These services also allow for creating aliases by appending a plus(+) and anything after. For example, `john.doe@gmail.com` or `john.doe+firstalias@gmail.com` are the same. You can use these tricks to create aliases for signing up on different sites without putting your main address everywhere.
+  Many email providers like ProtonMail and Google allow for unlimited aliases by adding a dot(.) in your email username. For example, `ricksanchez@protonmail.com` and `rick.sanchez@protonmail.com` or `ric.ksanch.ez@protonmail.com` are essentially the same addresses. The messages sent to either of these address will arrive at the same inbox. **This tip won't work for Tutanota**. These services also allow for creating aliases by appending a plus(+) and anything after. For example, `john.doe@gmail.com` or `john.doe+twitter@gmail.com` are the same. You can use these tricks to create aliases for signing up on different sites without putting your main address everywhere.
 
-- Avoid using the same username across multiple platforms and websites. Your first priority should be using a long, unique and random password for every site but having different usernames is also [important](https://nordpass.com/blog/unique-username-importance/). Tools like [sherlock](https://github.com/sherlock-project/sherlock) can be used to hunt down your identities across sites within seconds. Use a random [username](https://www.lastpass.com/username-generator/) [generator](https://nordpass.com/username-generator). For random passwords, I use [this](https://duckduckgo.com/?q=password+40+strong&t=brave&ia=answer) DuckDuckGo query and my [password manager](https://bitwarden.com/password-generator/). There are tons of [strong](https://www.lastpass.com/password-generator) [password/pass-phrase](https://1password.com/password-generator/) [generators](https://www.dashlane.com/features/password-generator) that you can use. Ideally, you should also use randomly generated strings as answers to your security questions for sites that require them and save them on your password manager using custom fields.
+- Avoid using the same username across multiple platforms and websites.
 
-- Research beforehand if the service you're signing up for allows for an (easy) way to delete your account. You might regret later when you find out you can't delete your account/subscription. Some websites have tricky account deletion procedure:
+  Your first priority should be using a long, unique and random password for every site but having different usernames is also [important](https://nordpass.com/blog/unique-username-importance/). Tools like [sherlock](https://github.com/sherlock-project/sherlock) can be used to hunt down your identities across sites within seconds. Use a random [username](https://www.lastpass.com/username-generator/) [generator](https://nordpass.com/username-generator). For random passwords, I use [this](https://duckduckgo.com/?q=password+40+strong&t=brave&ia=answer) DuckDuckGo query and my [password manager](https://bitwarden.com/password-generator/). There are tons of [strong](https://www.lastpass.com/password-generator) [password/pass-phrase](https://1password.com/password-generator/) [generators](https://www.dashlane.com/features/password-generator) that you can use. Ideally, you should also use randomly generated strings as answers to your security questions for sites that require them and save them on your password manager using custom fields.
+
+- Research in advance if the service you're signing up for allows for an (easy) way to delete your account. You might regret later when you find out you can't delete your account/subscription. Some websites have tricky account deletion procedure:
 
   - Amazon, Adobe (require contacting support)
   - TED (no delete account option in account settings)
@@ -101,7 +99,7 @@ _\* Slightly advanced tips_
 
   Use [Privacy Redirect](https://addons.mozilla.org/en-US/firefox/addon/privacy-redirect/) addon that redirects Twitter, YouTube, Instagram & Google Maps requests to privacy friendly alternatives. For a long time, I used [Invidition](https://addons.mozilla.org/en-US/firefox/addon/invidition/) but it is now deprecated and Privacy Redirect is recommended.
 
-- Don't like/comment on anything on Facebook, YouTube and social platforms. Use end-to-end encrypted bookmark service like [Firefox Sync](https://www.mozilla.com/en-US/firefox/sync/).
+- Instead of liking/saving anything on Facebook, YouTube and social platforms, use an end-to-end encrypted bookmark service like [Firefox Sync](https://www.mozilla.com/en-US/firefox/sync/).
 
   Platforms these days track everything from what your see, what you click on, share or comment on, and even [how long you looked at](https://www.theverge.com/2015/6/13/8775587/facebook-news-feed-uses-time-read-to-promote-posts) a particular item on your feed. Reduce your digital footprint as much as you can. Export your personal data from Facebook, Google from your account settings and work on deleting all of it.
 
@@ -115,22 +113,22 @@ _\* Slightly advanced tips_
   - [Diaspora](https://diasporafoundation.org/)
   - [Fediverse](https://fediverse.party/)
 
-- Use E2E-encrypted messaging applications for communication:
+- Use end-to-end encypted messaging applications for communication:
 
   - [Signal](https://signal.org/)
   - [Wire](https://wire.com)
 
-- Use E2E-encrypted email services:
+- Use E2E encrypted email services:
 
   - [Tutanota](https://tutanota.com/)
   - [Protonmail](https://protonmail.com/)
 
-- Use E2E-encrypted note-taking apps:
+- Use E2E encrypted note-taking apps:
 
   - [Standard Notes](https://standardnotes.org/)
   - [Joplin](https://joplinapp.org/) (E2EE is [not](https://joplinapp.org/e2ee/) enabled by default)
 
-- Use E2E-encrypted cloud storage solutions:
+- Use E2E encrypted cloud storage solutions:
 
   - [Tresorit](https://tresorit.com/)
   - [pCloud Crypto](https://pcloud.com/)
@@ -144,20 +142,20 @@ _\* Slightly advanced tips_
 - Use a reliable VPN:
 
   - [ProtonVPN](https://protonvpn.com/)
-  - [Mullvad VPN](https://mullvad.net/)
+  - [WireGuard](https://www.wireguard.com/)
 
 - \*Use a better DNS resolver:
 
   - [Cloudflare WARP](https://1.1.1.1/)
 
-- \*Use Linux/BSD. Any distro is fine:
+- \*Use Linux/BSD:
 
   - Made for privacy: [Tails](https://tails.boum.org/), [Whonix](https://www.whonix.org/), [Trisquel](https://trisquel.info/)...
   - Debian based: [Debian](https://www.debian.org/), [Ubuntu](https://www.ubuntu.com/)...
   - Arch based: [Arch](https://www.archlinux.org/), [ArcoLinux](https://arcolinux.info/), [Manjaro](https://manjaro.org/),...
   - BSDs: [OpenBSD](https://github.com/openbsd/src), [NetBSD](https://www.netbsd.org/), [FreeBSD](https://github.com/freebsd/freebsd/)...
 
-- \*Switch your OS on your smartphone:
+- \*Switch the OS on your smartphone:
 
   - [LineageOS](https://lineageos.org/)
   - [Ubuntu Touch](https://ubuntu-touch.io/)
@@ -175,17 +173,15 @@ _\* Slightly advanced tips_
   - [Bitwarden](https://bitwarden.com/)
   - [Keepass](https://keepass.info/)
 
-- Enable [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) on as many accounts as you can. Use an authenticator app like [FreeOTP](https://github.com/freeotp/) or [Authy](https://authy.com/) instead of giving out your phone number to services (**Don't forget to set necessary recovery options and backup 2FA recovery codes for important accounts!**).
+- Enable [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) on as many accounts as you can. Use an authenticator app like [FreeOTP](https://github.com/freeotp/) or [Aegis](https://github.com/beemdevelopment/Aegis/) instead of giving out your phone number to services (**Don't forget to set necessary recovery options and backup 2FA recovery codes for important accounts!**).
 
 - Monitor if you’ve been part of an online data breach:
   - [Firefox Monitor](https://monitor.firefox.com/)
   - [Have I Been Pwned](https://haveibeenpwned.com/)
 
----
-
 ### Further reading
 
-This is just a list of the most popular and reliable options for getting started on digital privacy. There are comprehensive guides, articles, books and websites for more advanced tips:
+This is just a list of the most basic options for getting started on digital privacy. There are comprehensive guides, articles, books and websites for more advanced tips. Make sure to research every option thoroughly to determine what works best for you.
 
 - [Digital Privacy](https://en.wikipedia.org/wiki/Digital_privacy)
 - [Awesome-Selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) - Free Software network services and web applications which can be hosted locally.
@@ -196,10 +192,6 @@ This is just a list of the most popular and reliable options for getting started
 - [privacytools.io](https://privacytools.io/)
 - [r/privacy](https://old.reddit.com/r/privacy/)
 - [The Social Dilemma - Netflix documentary](https://en.wikipedia.org/wiki/The_Social_Dilemma)
-
-Make sure to research every option thoroughly to determine what works best for you. Let me know if you found a mistake or want to add another service to this list.
-
----
 
 ### Updates:
 

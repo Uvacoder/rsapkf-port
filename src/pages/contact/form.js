@@ -1,7 +1,7 @@
 import React from 'react'
-import {navigate} from 'gatsby-link'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import { navigate } from 'gatsby-link'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
 
 import './form.module.scss'
 
@@ -11,11 +11,11 @@ function encode(data) {
     .join('&')
 }
 
-export default function Contact() {
+export default function ContactFormPage() {
   const [state, setState] = React.useState({})
 
   const handleChange = e => {
-    setState({...state, [e.target.name]: e.target.value})
+    setState({ ...state, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = e => {
@@ -23,7 +23,7 @@ export default function Contact() {
     const form = e.target
     fetch('/', {
       method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': form.getAttribute('name'),
         ...state,
@@ -36,7 +36,7 @@ export default function Contact() {
   return (
     <Layout>
       <SEO title="Contact form" />
-      <h2>Contact form</h2>
+      <h2>Contact &gt; Form</h2>
       <form
         name="contact"
         method="post"

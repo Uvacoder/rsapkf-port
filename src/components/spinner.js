@@ -1,26 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import spinner from '../assets/grid.svg'
 
 import ThemeContext from '../context/theme-context'
 
 const Spinner = () => {
+  const { theme } = useContext(ThemeContext)
   return (
-    <ThemeContext.Consumer>
-      {theme => (
-        <div>
-          <img
-            src={spinner}
-            style={{
-              width: '35px',
-              margin: 'auto',
-              display: 'block',
-              filter: !theme.dark ? 'invert(1)' : null,
-            }}
-            alt="Loading..."
-          />
-        </div>
-      )}
-    </ThemeContext.Consumer>
+    <div>
+      <img
+        src={spinner}
+        style={{
+          width: '35px',
+          margin: 'auto',
+          display: 'block',
+          filter: theme === 'light' ? 'invert(1)' : null,
+        }}
+        alt="Loading..."
+      />
+    </div>
   )
 }
 

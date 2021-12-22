@@ -1,6 +1,7 @@
-import React from 'react'
-import {Link} from 'gatsby'
-import {MDXProvider} from '@mdx-js/react'
+import React, { useContext } from 'react'
+import { Link } from 'gatsby'
+import { MDXProvider } from '@mdx-js/react'
+import { useLocation } from '@reach/router'
 
 import Header from './header'
 import Footer from './footer'
@@ -9,27 +10,25 @@ import LastUpdatedPages from './last-updated-pages'
 
 import ThemeContext from '../context/theme-context'
 
-import '../styles/global.scss'
-import '../styles/typography.scss'
-import styles from './layout.module.scss'
 import './font-awesome'
+import '../styles/main.scss'
+import styles from './layout.module.scss'
 
-const shortcodes = {Link, SEO, LastUpdatedPages}
+const shortcodes = { Link, SEO, LastUpdatedPages }
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
+  const { theme } = useContext(ThemeContext)
+  const location = useLocation()
+
   return (
     <MDXProvider components={shortcodes}>
-      <ThemeContext.Consumer>
-        {theme => (
-          <div className={theme.dark ? styles.dark : styles.light}>
-            <div className={styles.container}>
-              <Header />
-              {children}
-              <Footer />
-            </div>
-          </div>
-        )}
-      </ThemeContext.Consumer>
+      <div className={theme}>
+        <div className={location.pathname !== '/' ? styles.container : null}>
+          {location.pathname !== '/' && <Header />}
+          {children}
+          {location.pathname !== '/' && <Footer />}
+        </div>
+      </div>
     </MDXProvider>
   )
 }

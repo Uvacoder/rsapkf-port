@@ -1,49 +1,126 @@
+@import '../styles/typography.scss';
 @import './fontawesome/fontawesome.scss';
 @import './fontawesome/fa-solid.scss';
 @import './fontawesome/fa-regular.scss';
 @import './fontawesome/fa-brands.scss';
 
+$dark-primary: rgba(225, 218, 236, 0.8);
+$dark-selection: rgb(7, 247, 7);
+$dark-selection-bg: rgb(1, 0, 14);
+$dark-bg: rgb(1, 0, 14);
+$dark-link: rgb(65, 184, 65);
+$dark-link-bg: rgba(79, 84, 90, 0.1);
+$dark-link-active-bg: rgba(79, 84, 90, 0.15);
+
+$light-primary: rgb(0, 0, 0);
+$light-selection: rgb(32, 32, 32);
+$light-selection-bg: rgb(240, 204, 240);
+$light-bg: rgb(250, 244, 250);
+$light-link: rgb(159, 43, 165);
+$light-link-bg: rgba(186, 198, 209, 0.1);
+$light-link-active-bg: rgba(186, 198, 209, 0.25);
+
 html {
   box-sizing: border-box;
   overflow-y: scroll;
-  font-size: 112.5%;
+  font-size: 115%;
   line-height: 1.7em;
   scroll-behavior: smooth;
 }
+
 body {
   margin: 0;
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: hsla(0, 0%, 0%, 0.8);
-  font-weight: normal;
+  font-weight: 400;
   word-wrap: break-word;
   font-kerning: normal;
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -moz-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   -ms-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   -webkit-font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
+
+// Dark mode styles
+.dark {
+  transition: all 0.6s ease;
+  color: $dark-primary;
+  background-color: $dark-bg;
+
+  a {
+    color: $dark-link;
+    background-color: $dark-link-bg;
+
+    &:active,
+    &:hover {
+      color: rgb(167, 159, 159);
+      border-color: rgba(52, 73, 94, 0.9);
+      background-color: $dark-link-active-bg;
+    }
+  }
+
+  * {
+    ::selection {
+      color: $dark-selection;
+      background-color: $dark-selection-bg;
+    }
+  }
+}
+
+// Light mode styles
+.light {
+  transition: all 0.6s ease;
+  color: $light-primary;
+  background-color: $light-bg;
+
+  a {
+    color: $light-link;
+    background-color: $light-link-bg;
+
+    &:active,
+    &:hover {
+      background-color: $light-link-active-bg;
+    }
+  }
+
+  * {
+    ::selection {
+      color: $light-selection;
+      background-color: $light-selection-bg;
+    }
+  }
+
+  button[type='submit'] {
+    color: $light-primary;
+    background-color: $light-link-bg;
+  }
+
+  input,
+  select,
+  textarea {
+    color: rgb(0, 0, 0);
+    background-color: $light-link-bg;
+    outline: 1px solid rgba(23, 23, 24, 0.3);
+
+    &:focus {
+      background-color: transparent;
+      outline: 2px solid rgba(52, 73, 94, 0.3);
+    }
+  }
+}
+
 a {
   transition: all 0.6s ease;
   padding: 0.7px 2px;
   text-decoration: none;
-
-  // Target links with target attribute
-  &[target^='_blank']:hover::after {
-    content: '\f360'; // external-link-square-alt
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: relative;
-    bottom: 0.5rem;
-    transition: ease 0.2s;
-  }
+  border-bottom: 1px solid rgba(52, 73, 94, 0.3);
 
   // Target external links
   // TODO: Find a way to do this using FontAwesome library without importing fontawesome.css
-  &:not([href*='rsapkf.xyz']):not([href^='/']):not([href^='#']):not([href$='.pdf']):not([href*='mozilla.org']):not([href*='github.com']):not([href*='gitlab.com']):not([href*='mastodon.social']):not([href*='wikipedia.org']):not([href*='google.com']):not([href*='ycombinator.com']):not([href*='twitter.com']):not([href*='youtube.com']):not([href*='stackoverflow.com']):not([href*='reddit.com']):not([href*='goodreads.com']):not([href*='apple.com']):not([href*='microsoft.com']):not([href*='amazon.com']):not([href*='imdb.com']):not([href*='facebook.com']):not([href*='instagram.com'])::after {
+  &:not([href^='rsapkf.xyz']):not([href^='/']):not([href^='#']):not([href$='.pdf']):not([href*='mozilla.org']):not([href*='github.com']):not([href*='gitlab.com']):not([href*='mastodon.social']):not([href*='wikipedia.org']):not([href*='google.com']):not([href*='ycombinator.com']):not([href*='twitter.com']):not([href*='youtube.com']):not([href*='stackoverflow.com']):not([href*='reddit.com']):not([href*='goodreads.com']):not([href*='apple.com']):not([href*='microsoft.com']):not([href*='amazon.com']):not([href*='imdb.com']):not([href*='facebook.com']):not([href*='instagram.com'])::after {
     content: '\f35d'; // external-link-alt
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
@@ -53,10 +130,11 @@ a {
     font-family: 'Font Awesome 5 Brands';
     font-weight: 400;
     color: rgb(85, 78, 78);
-    font-size: 0.5rem;
+    font-size: 0.55rem;
     padding: 0.15rem;
     position: relative;
-    bottom: 0.4rem;
+    bottom: 0.15rem;
+    left: 0.05rem;
   }
 
   &[href$='.pdf']::after {
@@ -136,7 +214,93 @@ a {
   &[href*='instagram.com']::after {
     content: '\f09a'; // facebook
   }
+
+  // Target links with target attribute
+  &[target^='_blank']:hover::after {
+    position: relative;
+    bottom: 0.5rem;
+    transition: ease 0.2s;
+  }
 }
+
+details {
+  margin-bottom: 1rem;
+}
+summary {
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding-bottom: 0.2rem;
+}
+
+// Inline code blocks
+:not(pre) > code[class*='language-'] {
+  border-radius: 0.3em;
+  background: #282a36;
+  color: #89e6fa;
+  padding: 0.2em 0.2em;
+  white-space: normal;
+  font-size: 0.9em;
+}
+
+// PrismJS
+// Line highlighting
+.gatsby-highlight-code-line {
+  background-color: #383a59;
+  display: block;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #f99;
+}
+// Code blocks
+// Remove the default PrismJS theme background-color, border-radius, margin, padding and overflow.
+.gatsby-highlight {
+  background: #282a36;
+  margin-bottom: 1.75rem;
+  padding: 0.4em;
+  border-radius: 10px;
+  overflow: auto;
+
+  @media screen and (min-width: 1280px) {
+    margin-left: -1.3125rem;
+    margin-right: -1.3125rem;
+  }
+}
+.gatsby-highlight pre[class*='language-'] {
+  overflow: initial;
+  border-radius: 10px;
+  // Make the element just wide enough to fit its content.
+  float: left;
+  // Always fill the visible space in .gatsby-highlight.
+  min-width: 100%;
+}
+// Line numbering
+.gatsby-highlight pre[class*='language-'].line-numbers {
+  overflow: initial;
+  padding: 0;
+  // Adjust the position of the line numbers
+  padding-left: 2.8em;
+}
+// Shell prompt
+.command-line-prompt > span:before {
+  color: #999;
+  content: ' ';
+  display: block;
+  padding-right: 0.8em;
+}
+// Prompt for all users
+.command-line-prompt > span[data-user]:before {
+  content: '[' attr(data-user) '@' attr(data-host) '] $';
+}
+// Prompt for root
+.command-line-prompt > span[data-user='root']:before {
+  content: '[' attr(data-user) '@' attr(data-host) '] #';
+}
+.command-line-prompt > span[data-prompt]:before {
+  content: attr(data-prompt);
+}
+
 article,
 aside,
 figcaption,
@@ -148,15 +312,6 @@ menu,
 nav,
 section {
   display: block;
-}
-details {
-  margin-bottom: 1rem;
-}
-summary {
-  font-weight: bold;
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding-bottom: 0.2rem;
 }
 audio,
 canvas,
@@ -251,7 +406,7 @@ kbd,
 pre,
 samp {
   font-family: monospace;
-  font-size: 1em;
+  font-size: 0.6em;
 }
 figure {
   margin-left: 0;
@@ -683,10 +838,10 @@ code {
   border-radius: 3px;
   font-family: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono',
     'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 0.5em;
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
+  font-size: 1em;
 }
 pre code {
   background: none;
@@ -704,69 +859,4 @@ pre code:after,
 pre tt:before,
 pre tt:after {
   content: '';
-}
-@media only screen and (max-width: 480px) {
-  html {
-    font-size: 115%;
-  }
-}
-
-// PrismJS
-// PrismJS line highlighting
-/**
- * Add back the container background-color, border-radius, padding, margin
- * and overflow that we removed from <pre>.
- */
-.gatsby-highlight {
-  background-color: #3a2f3b;
-  border-radius: 0.17em;
-  margin-bottom: 1.6em;
-  padding: 1em;
-  overflow: auto;
-}
-
-/**
- * Remove the default PrismJS theme background-color, border-radius, margin,
- * padding and overflow.
- * 1. Make the element just wide enough to fit its content.
- * 2. Always fill the visible space in .gatsby-highlight.
- * 3. Adjust the position of the line numbers
- */
-.gatsby-highlight pre[class*='language-'] {
-  background-color: transparent;
-  margin: 0;
-  padding: 0;
-  overflow: initial;
-  float: left; /* 1 */
-  min-width: 100%; /* 2 */
-}
-
-// PrismJS line numbering
-/* Adjust the position of the line numbers */
-.gatsby-highlight pre[class*='language-'].line-numbers {
-  padding: 0;
-  padding-left: 2.8em;
-  overflow: initial;
-}
-
-// PrismJS shell prompt
-.command-line-prompt > span:before {
-  color: #999;
-  content: ' ';
-  display: block;
-  padding-right: 0.8em;
-}
-
-/* Prompt for all users */
-.command-line-prompt > span[data-user]:before {
-  content: '[' attr(data-user) '@' attr(data-host) '] $';
-}
-
-/* Prompt for root */
-.command-line-prompt > span[data-user='root']:before {
-  content: '[' attr(data-user) '@' attr(data-host) '] #';
-}
-
-.command-line-prompt > span[data-prompt]:before {
-  content: attr(data-prompt);
 }

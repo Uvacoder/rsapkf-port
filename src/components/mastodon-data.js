@@ -1,15 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import {Link} from 'gatsby'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'gatsby'
 
 import Layout from './layout'
 import SEO from './seo'
 import Spinner from './spinner'
 
-import {fetchData} from '../services/mastodon-api'
-import {formatDate} from '../utils/format-date'
-import {capitalizeString} from '../utils/capitalize-string'
+import { fetchData } from '../services/mastodon-api'
+import { formatDate } from '../utils/format-date'
+import { capitalizeString } from '../utils/capitalize-string'
 
-const MastodonData = ({tag}) => {
+const MastodonData = ({ tag }) => {
   const [response, setResponse] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 

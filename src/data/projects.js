@@ -32,14 +32,14 @@ export const projects = [
       {
         name: '777',
         description: "@rsapkf's dotfiles.",
-        repository: 'https://github.com/rsapkf/777',
+        repository: 'https://github.com/rsapkf/config',
         stars: 1,
         forks: 0,
       },
     ],
   },
   {
-    label: 'Software',
+    label: 'Software/Utils',
     items: [
       {
         name: 'LFP Library',
@@ -51,10 +51,29 @@ export const projects = [
         private: true,
       },
       {
+        name: 'pl-sort',
+        description: 'Sort YouTube playlists by various metrics.',
+        homepage: 'https://pl-sort.netlify.app/',
+        repository: 'https://github.com/rsapkf/pl-sort',
+        builtWith: 'React, YouTube Data API v3',
+        stars: 1,
+        forks: 0,
+      },
+      {
+        name: 'pwizard',
+        description:
+          'Cryptographically secure password/passphrase generator and password strength tester.',
+        homepage: 'https://pwizard.netlify.app/',
+        repository: 'https://github.com/rsapkf/pwizard',
+        builtWith: 'React, zxcbvn',
+        stars: 1,
+        forks: 0,
+      },
+      {
         name: 'GNU Readline library reference',
         description:
           'Comprehensive GNU Readline shortcuts guide for vi + Emacs editing modes.',
-        homepage: 'https://rsapkf.github.io/gnureadline-reference/',
+        homepage: 'https://gnureadline-reference.netlify.app/',
         repository: 'https://github.com/rsapkf/gnureadline-reference',
         builtWith: 'Bootstrap, Handlebars',
         stars: 4,
@@ -74,7 +93,7 @@ export const projects = [
         name: 'tzinfo',
         description:
           'Check and compare local times of major cities of the world.',
-        homepage: 'https://rsapkf.github.io/tzinfo/',
+        homepage: 'https://tzinfo.netlify.app/',
         repository: 'https://github.com/rsapkf/tzinfo',
         builtWith: 'Day.js, Bulma',
         stars: 1,

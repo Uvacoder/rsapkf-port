@@ -89,7 +89,7 @@ $header-theme-color: rgb(65, 184, 65);
   cursor: pointer;
 
   &::after {
-    content: '\f067'; // angle-down
+    content: '\f067'; // plus
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 0.5rem;
@@ -103,7 +103,7 @@ $header-theme-color: rgb(65, 184, 65);
   }
 
   &:hover::after {
-    content: '\f068';
+    content: '\f068'; // minus
     transform: rotate(-180deg);
   }
 
@@ -147,6 +147,7 @@ $header-theme-color: rgb(65, 184, 65);
     0 100px 80px rgba(0, 0, 0, 0.12);
   white-space: nowrap;
   margin-left: -65px;
+  min-width: 7rem;
 
   ul {
     list-style: none;

@@ -1,8 +1,8 @@
 const path = require('path')
 const _ = require('lodash')
 
-module.exports.onCreateNode = ({node, actions}) => {
-  const {createNodeField} = actions
+module.exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === 'Mdx') {
     const slug = node.frontmatter.slug
@@ -17,8 +17,8 @@ module.exports.onCreateNode = ({node, actions}) => {
   }
 }
 
-async function createPostAndTagPages({graphql, actions}, postType) {
-  const {createPage} = actions
+async function createPostAndTagPages({ graphql, actions }, postType) {
+  const { createPage } = actions
   const postTemplate = path.resolve(`./src/templates/post.js`)
   const postListTemplate = path.resolve(`./src/templates/post-list.js`)
   const tagListTemplate = path.resolve(`./src/templates/tag-list.js`)
@@ -102,10 +102,10 @@ async function createPostAndTagPages({graphql, actions}, postType) {
   })
 }
 
-exports.createPages = async ({graphql, actions}) => {
+exports.createPages = async ({ graphql, actions }) => {
   await Promise.all([
-    createPostAndTagPages({graphql, actions}, 'blog'),
-    createPostAndTagPages({graphql, actions}, 'thoughts'),
-    createPostAndTagPages({graphql, actions}, 'hobbies'),
+    createPostAndTagPages({ graphql, actions }, 'blog'),
+    createPostAndTagPages({ graphql, actions }, 'thoughts'),
+    createPostAndTagPages({ graphql, actions }, 'hobbies'),
   ])
 }

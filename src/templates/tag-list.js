@@ -3,16 +3,16 @@ import PropTypes from 'prop-types'
 
 import kebabCase from 'lodash/kebabCase'
 
-import {Link, graphql} from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 import styles from './tag-list.module.scss'
-import {capitalizeString} from '../utils/capitalize-string'
+import { capitalizeString } from '../utils/capitalize-string'
 
 export const pageQuery = graphql`
   query($postType: String!) {
-    allMdx(limit: 2000, filter: {frontmatter: {type: {eq: $postType}}}) {
+    allMdx(limit: 2000, filter: { frontmatter: { type: { eq: $postType } } }) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

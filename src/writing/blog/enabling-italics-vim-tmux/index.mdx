@@ -41,7 +41,7 @@ Before jumping right in, I think it's a good idea to learn some basics of what i
 And now we can begin. To have italics enabled in terminal Vim/Neovim, you need to have a terminal emulator that supports italics. To check this for your terminal, type the following:
 
 ```shell
-echo -e "\e[3m foo \e[23m"
+$ echo -e "\e[3m foo \e[23m"
 ```
 
 If you see the output _`foo`_ (in italics), then congratulations! Your terminal can support italics. If you don't, I recommend you switch to a more modern terminal emulator. Here are some options:
@@ -67,7 +67,7 @@ xterm-256color-italic|xterm with 256 colors and italic,
 Now, compile the `xterm-256color-italic.terminfo` file with `tic`:
 
 ```shell
-tic xterm-256color-italic.terminfo
+$ tic xterm-256color-italic.terminfo
 ```
 
 Lastly, load it in your `~/.bashrc` or `~/.zshrc`:
@@ -80,7 +80,7 @@ $ echo "export TERM=xterm-256color-italic" >> ~/.zshrc
 
 Source your `.bashrc` (`source ~/.bashrc`), restart the terminal and try the test above to make sure your terminal now outputs the italicised _`foo`_.
 
-Now, to have italicized comments in Vim, add this line to your `~/.vimrc` / `~/.config/nvim/init.vim` **after you declare your colorscheme**:
+Now, to have italicized comments in Vim, add this line to your `.vimrc` / `init.vim` **after you declare your colorscheme**:
 
 ```vim
 highlight Comment cterm=italic
@@ -99,18 +99,18 @@ These are special terminal options that enable italics mode and italics end resp
 
 **Note**: The characters `^[` must be entered with `<Ctrl-v><Esc>`.
 
-**Sidenote**: If you're using [jellybeans.vim](https://github.com/nanotech/jellybeans.vim) colorscheme for Vim, put this line after `colorscheme jellybeans` ([official documentation](https://github.com/nanotech/jellybeans.vim#italics)):
+**Sidenote**: If you're using [jellybeans.vim](https://github.com/nanotech/jellybeans.vim#italics) colorscheme for Vim, put this line after `colorscheme jellybeans`:
 
 ```vim
 let g:jellybeans_use_term_italics = 1
 
 " For onedark.vim - https://github.com/joshdick/onedark.vim#options
-g:onedark_terminal_italics = 1
+let g:onedark_terminal_italics = 1
 ```
 
 ## Italics in Vim inside tmux
 
-If you made it this far, chances are you are using a terminal multiplexer like tmux for managing multiple sessions in the terminal. But if you try the test above inside tmux, you'll notice italics don't work anymore. This is because tmux sets the environment variable `TERM` to `screen-256color` instead of `xterm-256color` and hence uses the italics escape sequence incorrectly. For tmux 2.1 and above, you'd have had to create a new terminfo entry called 'tmux':
+If you made it this far, chances are you are using a terminal multiplexer like tmux for managing multiple sessions in the terminal. But if you try the test above inside tmux, you'll notice italics don't work anymore. This is because tmux sets the environment variable `TERM` to `screen-256color` instead of `xterm-256color` and hence uses the italics escape sequence incorrectly. For tmux 2.1 and above, you'd have had to create a new terminfo entry:
 
 ```shell
 $ cat <<EOF|tic -x -
@@ -126,7 +126,8 @@ EOF
 And then tell tmux to use it in `~/.tmux.conf`:
 
 ```shell
-set -g default-terminal "tmux" # or
+set -g default-terminal "tmux"
+# or
 set -g default-terminal "tmux-256color"
 ```
 

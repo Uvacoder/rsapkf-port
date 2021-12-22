@@ -1,19 +1,19 @@
 import React from 'react'
-import {Link, graphql} from 'gatsby'
-import {MDXRenderer} from 'gatsby-plugin-mdx'
+import { Link, graphql } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import PostNav from '../components/post-nav'
 
-import {CopyPermalink} from '../components/copy-permalink'
+import { CopyPermalink } from '../components/copy-permalink'
 import styles from './post.module.scss'
 
-import {capitalizeString} from '../utils/capitalize-string'
+import { capitalizeString } from '../utils/capitalize-string'
 
 export const query = graphql`
   query($slug: String!) {
-    mdx(fields: {slug: {eq: $slug}}) {
+    mdx(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
         date(formatString: "MMM D, YYYY")
@@ -37,7 +37,7 @@ export const query = graphql`
 const Posts = props => {
   const postType = props.pageContext.postType
   const slug = props.data.mdx.fields.slug
-  const {title, date, lastUpdated, tags} = props.data.mdx.frontmatter
+  const { title, date, lastUpdated, tags } = props.data.mdx.frontmatter
   const permalink = `${props.data.site.siteMetadata.siteUrl}/${postType}/${slug}`
   const editUrl = `https://github.com/rsapkf/www/blob/main/src/writing/${postType}/${slug}/index.mdx`
 
@@ -49,7 +49,7 @@ const Posts = props => {
         article
       />
       <h2 className={styles.title}>{title}</h2>
-      <small style={{marginTop: '-20px'}}>
+      <small style={{ marginTop: '-20px' }}>
         {date} · {props.data.mdx.timeToRead} min read · Last updated:{' '}
         {lastUpdated}
         <hr />

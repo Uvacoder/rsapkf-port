@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './github-data.module.scss'
+import { fetchGitHubData } from '../services/github-api'
 
-import {fetchGitHubData} from '../services/github-api'
-
-const GitHubData = ({project}) => {
+const GitHubData = ({ project }) => {
   const [description, setDescription] = useState(project.description)
   const [homepage, setHomepage] = useState(project.homepage)
   const [stars, setStars] = useState(project.stars)
